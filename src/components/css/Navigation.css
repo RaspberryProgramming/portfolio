@@ -1,0 +1,28 @@
+.Navigation {
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #3F3F4A;
+    border-color: gray;
+    border-bottom-style: solid;
+    margin:0;
+    padding:0;
+}
+
+.Navigation ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding:0;
+}
+
+.Navigation li a {
+    color: white;
+    padding:10px;
+}
+
+.Navigation a:hover {
+    border-bottom-style: solid;
+    border-color: black;
+    background-color: #2F2F32;
+}
