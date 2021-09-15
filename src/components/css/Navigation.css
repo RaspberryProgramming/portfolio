@@ -9,14 +9,7 @@
     padding:0;
 }
 
-.Navigation ul {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    padding:0;
-}
-
-.Navigation li a {
+.Navigation a {
     color: white;
     padding:10px;
 }
