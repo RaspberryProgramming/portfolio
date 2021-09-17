@@ -1,3 +1,13 @@
 {
-    "headers": [{"cache-control" : "public, max-age=3600"}]
+    "headers": [
+        {
+            "source": "/(*)",
+            "headers": [
+                {
+                    "key": "cache-control",
+                    "value": "public, max-age=3600"
+                }
+            ]
+        }
+    ]
 }
