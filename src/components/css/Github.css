@@ -1,14 +1,3 @@
-
-
-.repo {
-    display: flex;
-    flex-direction: column;
-    background-color: #DDDCDC;
-    border-radius: 10px;
-    align-items: center;
-    margin-top: 10px;
-}
-
 .repo-list {
     display:flex;
     flex-direction: column;
@@ -17,16 +6,50 @@
     margin-right: auto;
 }
 
+.repo {
+    border-top-style: solid;
+    border-top-color: #A4A4A1;
+    border-top-width:2px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 10px;
+}
+
 .repo .title {
-    background-color: gray;
-    width:100%;
-    text-align:center;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding-top:5px;
-    padding-bottom:5px;
+    margin-top: 10px;
+    color: #3A4ADC;
+    font-weight:bold;
+    width:fit-content;
+    width:-moz-fit-content;
+    text-align:start;
+    padding:5px;
+    border-radius: 3px;
+}
+
+.repo .title:hover {
+    color: black;
+}
+
+.repo .content {
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+}
+
+.repo .website {
+    height:fit-content;
+    height: -moz-fit-content;
+    background-color: #5A5A5C;
+    color: white;
+    border-radius: 10px;
+    padding:10px;
+    align-items:center;
+    text-align: center;
+    width: 58px;
 }
 
 .repo .description {
+    flex-grow: 1;
     padding:10px;
 }
