@@ -16,10 +16,12 @@ class Github extends React.Component {
       const render = this.props.repos.map((repo) =>{
         console.log(repo);
         return (
-          <div className="repo">
-            <div><a href={repo.html_url}>{repo.name}</a></div>
-            <p>{repo.description}</p>
-          </div>
+          
+          <a className="repo" href={repo.html_url}>
+            <div className="title">{repo.name}</div>
+            <p className="description">{repo.description ? repo.description : "No Description"}</p>
+          </a>
+          
         );
       });
       console.log(render);
