@@ -12,10 +12,12 @@
 .Navigation a {
     color: #CFC0C0 !important;
     padding:10px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around
 }
 
 .Navigation a:hover {
-    border-bottom-style: solid;
-    border-color: black;
     background-color: #2F2F32;
 }
