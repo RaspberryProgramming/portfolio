@@ -8,6 +8,10 @@
     height:100%;
 }
 
+.theater.h-50v {
+    height:50vw;
+}
+
 .theater-bg {
     
     height: 100%;
