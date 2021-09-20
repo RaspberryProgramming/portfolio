@@ -15,11 +15,13 @@ body {
     margin:0;
     width: 100vw;
     overflow-x: hidden;
+
 }
 
 .App {
     height: 100vh;
     display:flex;
+    flex-direction:column;
 }
 
 .Home {
