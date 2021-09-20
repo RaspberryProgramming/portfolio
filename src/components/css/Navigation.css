@@ -10,7 +10,8 @@
     padding:0;
 }
 
-.Navigation a {
+.Navigation a, .Navigation button {
+    border: none;
     color: #CFC0C0 !important;
     display: flex;
     flex-direction: column;
@@ -26,10 +27,15 @@
     background-color: inherit;
 }
 
-.Navigation a:hover {
+.Navigation a:hover, .Navigation button:hover {
     background-color: #2F2F32;
     height: 90px;
     transition: background-color 300ms ease-out, height 300ms ease-out;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.Navigation .end {
+    margin-left: auto;
+    margin-right: 25px;
 }

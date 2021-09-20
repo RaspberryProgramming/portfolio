@@ -1,0 +1,46 @@
+.modal {
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: 1;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal .box {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #544545;
+    border-width: 2px;
+    background-color: white;
+    padding: 25px;
+}
+
+.modal .title {
+    font-size: 28px;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal form * {
+    margin-top: 10px;
+}
+
+.modal form button {
+    padding: 10px;
+    width:fit-content;
+    height: fit-content;
+}
+
+.modal input.large {
+    height: 100px;
+    width: 300px;
+}
