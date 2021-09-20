@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navigation from './Navigation';
 import Home from './Home';
 import Github from './Github';
+import About from './About';
 
 const App = (props) => {
   return (
@@ -12,6 +13,7 @@ const App = (props) => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/github" component={Github} />
+          <Route path="/about" component={About} />
         </Switch>
       </div>
     </BrowserRouter>
