@@ -25,8 +25,8 @@ class About extends React.Component {
         <Card title="Camerin Figueroa" image={ProfilePic}>
           I am a computer science student at Marist College in Poughkeepsie, NY. I'm closing in on my Bachelors Degree in Computer Science.
           I went to Orange County Community College for my Associates Degree in Computer Science. You can find a few of my projects on my
-          <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer"> github</a> or look through a list in the
-          <Link to="/github"> Github Page</Link>
+          <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer"> Github</a> or look through a list in the
+          <Link to="/github"> Github Page</Link>. You can email me at <a href="mailto:camerin@camsprojects.online">camerin@camsprojects.online</a>
         </Card>
       </div>
     );
