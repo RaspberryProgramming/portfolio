@@ -1,5 +1,6 @@
 .Navigation {
-    height: 75px;
+
+    height: 70px;
     display: flex;
     flex-direction: row;
     background-color: #3F3F4A;
@@ -15,17 +16,20 @@
     flex-direction: column;
     align-items:center;
     justify-content: space-around;
-    transition: height 4s ease-in-out;
     padding-left: 10px;
     padding-right: 10px;
     height:70px;
-    transition: height 250ms ease-in-out;
-
+    transition: background-color 250ms ease-in, height 250ms ease-in;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 10;
+    background-color: inherit;
 }
 
 .Navigation a:hover {
     background-color: #2F2F32;
     height: 90px;
-    z-index: 10;
-    transition: height 300ms ease-in-out;
+    transition: background-color 300ms ease-out, height 300ms ease-out;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
