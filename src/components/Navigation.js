@@ -10,10 +10,6 @@ const Navigation = (props) => {
         Home
         <HouseDoor />
       </Link>
-      <Link to="/about">
-        About Me
-        <FileEarmarkPerson />
-      </Link>
       <Link to="/github">
         Github Repos
         <Github />
@@ -21,6 +17,10 @@ const Navigation = (props) => {
       <Link to="/youtube">
         Youtube Videos
         <Youtube />
+      </Link>
+      <Link to="/about">
+        About
+        <FileEarmarkPerson />
       </Link>
     </div>
   );

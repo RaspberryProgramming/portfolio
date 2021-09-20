@@ -5,19 +5,17 @@ import Home from './Home';
 import Github from './Github';
 
 const App = (props) => {
-    return (
+  return (
+    <BrowserRouter>
       <div className="App">
-        <BrowserRouter>
-          <div>
-            <Navigation />
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/github" component={Github} />
-            </Switch>
-          </div>
-        </BrowserRouter>
+        <Navigation />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/github" component={Github} />
+        </Switch>
       </div>
-    );
+    </BrowserRouter>
+  );
 }
 
 export default App;
