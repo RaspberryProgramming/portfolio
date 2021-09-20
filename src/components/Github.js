@@ -8,18 +8,19 @@ import space from '../img/space.webp';
 class Github extends React.Component {
 
   componentDidMount() {
-    this.props.getRepos();
-    console.log(this.props.repos);
+    if (!this.props.repos) {
+      this.props.getRepos();
+      console.log("A");
+    }
+    
   }
 
   renderRepos() {
 
     if (this.props.repos) {
       const render = this.props.repos.map((repo) =>{
-        console.log(repo);
         return (
-          
-          <div className="repo">
+          <div className="repo" key={repo.id}>
             <a href={repo.html_url} target="_blank" rel="noreferrer" className="title">{repo.name}</a>
             <div className="content">
               <p className="description">{repo.description ? repo.description : "No Description"}</p>
@@ -33,7 +34,6 @@ class Github extends React.Component {
           
         );
       });
-      console.log(render);
       return <div className="repo-list">{render}</div>;
     }
     return <div></div>;
