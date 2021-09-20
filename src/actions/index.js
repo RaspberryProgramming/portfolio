@@ -10,7 +10,6 @@ export const getRepos = () => async (dispatch, getState) => {
 };
 
 export const updateEmailBody = (event) => async (dispatch, getState) => {
-  console.log(event);
   dispatch({
     type: 'UPDATE_EMAIL_BODY',
     payload: event.target.value,
