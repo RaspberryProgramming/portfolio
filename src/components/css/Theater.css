@@ -4,8 +4,13 @@
     grid-template-areas: "inner-div";
 }
 
+.theater.h-100 {
+    height:100%;
+}
+
 .theater-bg {
-    height: 94.6vh;
+    
+    height: 100%;
     width:100vw;
     background-size: cover;
     background-image: url('../../img/background.webp');

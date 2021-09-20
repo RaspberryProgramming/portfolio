@@ -4,7 +4,7 @@ import './css/Theater.css';
 const Theater = (props) => {
     
     return (
-        <div className={`theater ${props.peak ? 'peak':''}`}>
+        <div className={`theater ${props.peak ? 'peak':''} ${props.h_100 ? 'h-100':''}`}>
             <div className="theater-bg" style={props.background ? {backgroundImage: `url(${props.background})`} : {}}/>
             <div className="theater-content">
                 <h1>{props.title}</h1>

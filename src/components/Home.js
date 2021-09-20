@@ -15,7 +15,7 @@ const Home = (props) => {
 
   return (
     <div className="Home">
-      <Theater title={title} description={description} />
+      <Theater title={title} description={description} h_100/>
     </div>
   );
 }

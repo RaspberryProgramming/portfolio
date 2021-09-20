@@ -17,6 +17,18 @@ body {
     overflow-x: hidden;
 }
 
+.App {
+    height: 100vh;
+    display:flex;
+}
+
+.Home {
+    flex-grow: 1;
+    height: auto;
+}
+
+
+
 @media only screen and (max-width: 600px) {
     .theater-content p {
         width: 80vw;
