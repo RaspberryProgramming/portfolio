@@ -3,7 +3,7 @@ import Theater from './Theater';
 import './css/Home.css';
 
 const Home = (props) => {
-
+  document.title = "Welcome to my Portfolio";
   const title = "Welcome to my Portfolio";
   const description = 
     <p>

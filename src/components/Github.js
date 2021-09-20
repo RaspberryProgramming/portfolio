@@ -8,9 +8,9 @@ import space from '../img/space.webp';
 class Github extends React.Component {
 
   componentDidMount() {
+    document.title = "Github Repos";
     if (!this.props.repos) {
       this.props.getRepos();
-      console.log("A");
     }
     
   }
@@ -49,7 +49,7 @@ class Github extends React.Component {
             star. Any projects that have a website will have a button 
             that will bring you right to the site"
           background={space}
-          peak
+          extraClasses="peak"
         />
         <div>
           {this.renderRepos()}
