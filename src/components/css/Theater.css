@@ -43,10 +43,19 @@
     align-items: center;
 }
 
-.theater-content p,h1 {
+.theater-content .description, .theater-content h1 {
     width: 50vw;
+}
+.theater-content .description {
+    padding: 10px;
 }
 
 .theater-content a {
     color: #CFCFBA !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .theater-content .description {
+        width: 80vw;
+    }
 }

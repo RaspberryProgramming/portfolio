@@ -8,9 +8,9 @@ const Theater = (props) => {
             <div className="theater-bg" style={props.background ? {backgroundImage: `url(${props.background})`} : {}}/>
             <div className="theater-content">
                 <h1>{props.title}</h1>
-                <p>
+                <div className="description">
                     {props.description}
-                </p>
+                </div>
             </div>
         </div>
         
