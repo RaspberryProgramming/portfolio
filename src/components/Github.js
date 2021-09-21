@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import './css/Github.css';
 import {getRepos} from '../actions';
 import Theater from './Theater';
-import space from '../img/space.webp';
 
 class Github extends React.Component {
 
@@ -48,7 +47,7 @@ class Github extends React.Component {
             You can check them out, fork them, and maybe give them a 
             star. Any projects that have a website will have a button 
             that will bring you right to the site"
-          background={space}
+          background="/img/space.webp"
           extraClasses="peak"
         />
         <div>
