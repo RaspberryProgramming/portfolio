@@ -32,3 +32,19 @@
     width: 10rem;
     margin: auto;
 }
+
+@media only screen and (max-width: 600px) {
+
+    .card {
+        flex-direction: column-reverse;
+    }
+
+    .card .content {
+        font-size: x-large;
+    }
+
+    .card img.show {
+        margin-bottom: 50px;
+    }
+
+}
