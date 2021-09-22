@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import './css/Github.css';
 import {getRepos, getRepoLanguages} from '../actions';
 import Theater from './Theater';
-<<<<<<< HEAD
 import _ from 'lodash';
-=======
-
->>>>>>> 2454172a37ea260dff0829b5bead236b53ce5a2d
 class Github extends React.Component {
 
   componentDidMount() {
