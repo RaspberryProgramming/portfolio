@@ -53,3 +53,17 @@
     flex-grow: 1;
     padding:10px;
 }
+
+.repo .languages {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.repo .language {
+    padding: 5px;
+    margin-left: 5px;
+    border-radius: 10px;
+    background-color: #AAAAAA;
+}

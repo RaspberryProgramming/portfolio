@@ -17,7 +17,22 @@ export const updateEmailBody = (event) => async (dispatch, getState) => {
 };
 
 export const toggleContactModal = () => async (dispatch, getState) => {
+
   dispatch({
     type: 'TOGGLE_CONTACT_MODAL',
   });
 };
+
+export const getRepoLanguages = (repoName) => async (dispatch, getState) => {
+
+  const response = await github.get(`/repos/RaspberryProgramming/${repoName}/languages`); // Request languages for the repo
+
+  // Each repo will have it's own object with it's languages
+  let payload = {};
+  payload[repoName] = response.data;
+
+  dispatch({
+    type: 'GET_LANGUAGES',
+    payload: payload,
+  });
+}
