@@ -18,10 +18,6 @@ const Navigation = (props) => {
         Github Repos
         <Github />
       </Link>
-      <Link to="/youtube">
-        Youtube Videos
-        <Youtube />
-      </Link>
       <Link to="/about">
         About
         <FileEarmarkPerson />
