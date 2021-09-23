@@ -1,5 +1,5 @@
 import React from 'react';
-import Theater from './Theater';
+import Theater from './subcomponents/Theater';
 import './css/Home.css';
 
 const Home = (props) => {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {toggleContactModal} from '../actions'
 import './css/Navigation.css';
 import { HouseDoor, FileEarmarkPerson, Github, Envelope, Share } from 'react-bootstrap-icons';
-import ContactModal from './ContactModal';
+import ContactModal from './subcomponents/ContactModal';
 
 const Navigation = (props) => {
 

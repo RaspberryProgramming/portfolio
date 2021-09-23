@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/Theater.css';
+import '../css/Theater.css';
 
 const Theater = (props) => {
     

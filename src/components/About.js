@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './css/About.css';
-import Theater from './Theater';
-import Card from './Card';
+import Theater from './subcomponents/Theater';
+import Card from './subcomponents/Card';
 
 
 class About extends React.Component {

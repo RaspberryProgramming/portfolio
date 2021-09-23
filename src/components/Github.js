@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './css/Github.css';
 import {getRepos, getRepoLanguages} from '../actions';
-import Theater from './Theater';
+import Theater from './subcomponents/Theater';
 import _ from 'lodash';
 class Github extends React.Component {
 

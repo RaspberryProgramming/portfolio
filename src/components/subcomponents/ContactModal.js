@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Modal from './Modal';
-import {toggleContactModal, updateEmailBody} from '../actions'
+import {toggleContactModal, updateEmailBody} from '../../actions'
 
 const ContactModal = props => {
     const onSubmit = (e) => {
