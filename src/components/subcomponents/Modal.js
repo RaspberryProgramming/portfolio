@@ -4,7 +4,7 @@ import '../css/Modal.css';
 
 const Modal = props => {
   return ReactDOM.createPortal(
-    <div onClick={props.onDismiss} className="modal">
+    <div onClick={props.onDismiss} className={`modal ${props.show?'show':''}`}>
       <div onClick={(e) => e.stopPropagation()} className="box">
 
         <div className="title">{props.title}</div>

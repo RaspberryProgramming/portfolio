@@ -23,6 +23,7 @@ const ContactModal = props => {
         title="Contact Me"
         content = {renderContent()}
         onDismiss={props.toggleContactModal}
+        show={props.show}
       />
 };
 

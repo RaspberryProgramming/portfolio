@@ -30,7 +30,7 @@ const Navigation = (props) => {
         Contact Me
         <Envelope />
       </button>
-      {props.modal ? <ContactModal /> : ''}
+      <ContactModal show={props.modal}/>
     </div>
   );
 }
