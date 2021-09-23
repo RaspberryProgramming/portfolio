@@ -1,0 +1,10 @@
+.App {
+    display:flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+    .App {
+        flex-direction: column-reverse;
+    }
+}

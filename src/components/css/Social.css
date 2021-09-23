@@ -2,6 +2,9 @@
     background-color: #3D3C3F;
     min-height: 100vh;
     color: #AA9AA0;
+    width:100vw;
+    display:flex;
+    flex-direction:column;
 }
 
 .Social .links {
@@ -9,16 +12,16 @@
     flex-direction:row;
     align-content:center;
     justify-content:center;
-    align-items:start;
+    align-items: flex-start;
     width:75vw;
     margin-left: auto;
     margin-right: auto;
 }
 
 .Social .links img {
-    height: 10vh;
+    width: 10rem;
 }
 
 .Social .links * {
-    margin: 25px;
+    margin: 10px;
 }

@@ -1,11 +1,11 @@
 .Navigation {
-
-    height: 63px;
+    z-index:9;
+    position: relative;
+    height: 4rem;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     background-color: #3F3F4A;
-    border-color: gray;
-    border-bottom-style: solid;
     margin:0;
     padding:0;
 }
@@ -25,7 +25,9 @@
     text-align:center;
     font-size: 16px;
     padding: 5px;
-    height: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 4rem;
     border: none;
     color: #CFC0C0 !important;
 
@@ -33,7 +35,7 @@
 
 .Navigation a:hover, .Navigation button:hover {
     background-color: #2F2F32;
-    height: 90px;
+    height: 5rem;
     transition: background-color 300ms ease-out, height 300ms ease-out;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -49,4 +51,25 @@
     margin-bottom: 4px;
     height: 24px;
     width: 24px;
+}
+
+@media only screen and (max-width: 600px) {
+    .Navigation {
+        position: fixed;
+        bottom:0;
+        left:0;
+        height: 5.5rem;
+    }
+
+    .Navigation a, .Navigation button {
+        height: 5.5rem;
+    }
+
+    .Navigation a:hover, .Navigation button:hover {
+        background-color: #2F2F32;
+        height:5.5rem;
+        transition: background-color 300ms ease-out;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
 }
