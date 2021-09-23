@@ -5,7 +5,6 @@ import Navigation from './Navigation';
 import Home from './Home';
 import Github from './Github';
 import About from './About';
-import Social from './Social';
 
 const App = (props) => {
   return (
@@ -16,7 +15,6 @@ const App = (props) => {
           <Route path="/" exact component={Home} />
           <Route path="/github" component={Github} />
           <Route path="/about" component={About} />
-          <Route path="/social" component={Social} />
         </Switch>
       </div>
     </BrowserRouter>

@@ -14,11 +14,9 @@ a:visited {
     cursor: pointer;
 }
 
-body {
+html, body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;    margin:0;
-    width: 100vw;
-    overflow-x: hidden;
-
+    width:100%;
 }
 
 .App {

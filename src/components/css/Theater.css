@@ -1,4 +1,5 @@
 .theater {
+    width:100%;
     display: grid;
     place-items:center;
     grid-template-areas: "inner-div";
@@ -9,13 +10,13 @@
 }
 
 .theater.h-50v {
-    height:50vw;
+    height:50vh;
 }
 
 .theater-bg {
     
     height: 100%;
-    width:100vw;
+    width:100%;
     background-size: cover;
     background-image: url('../../img/background.webp');
     filter: blur(2px);
@@ -37,8 +38,8 @@
     color: #FAFCF0;
     grid-area: inner-div;
     font-weight:bolder;
-    max-width: 100vw;
-    width:100vw;
+    max-width: 100%;
+    width:100%;
     background: rgba(76, 76, 80, 0.75);
     align-items: center;
 }

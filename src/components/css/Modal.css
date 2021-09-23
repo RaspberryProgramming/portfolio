@@ -10,16 +10,14 @@
     background-color: rgba(0,0,0,0);
     justify-content: center;
     align-items: center;
-    transition-delay: 70ms, 70ms, 0ms;
-    transition: opacity 300ms ease-out, width 300ms ease-out, background-color 50ms ease-out;
+    transition: opacity 300ms ease-out 50ms, width 300ms ease-out 50ms, background-color 80ms ease-out;
 }
 
 .modal.show {
-    width: 100vw;
+    width: 100%;
     background-color: rgba(0,0,0,0.4);
     opacity: 1;
-    transition-delay: 0ms, 0ms, 300ms;
-    transition: opacity 300ms ease-in, width 300ms ease-in, background-color 300ms ease-in;
+    transition: opacity 300ms ease-in, width 300ms ease-in, background-color 300ms ease-in 200ms;
 }
 
 .modal .box {

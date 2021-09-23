@@ -26,6 +26,25 @@ class About extends React.Component {
           <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer"> Github</a> or look through a list in the
           <Link to="/github"> Github Page</Link>. You can email me at <a href="mailto:camerin@camsprojects.online">camerin@camsprojects.online</a>
         </Card>
+
+        <div className="social">
+          <div className="title">
+            Social Media:
+          </div>
+
+          <div className="links">
+            <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer" className="link">
+              <img src="/img/github.webp" alt="Github"/>
+            </a>
+
+            <a href="https://www.linkedin.com/in/camerin-figueroa-2662bb157/" target="_blank" rel="noreferrer" className="link">
+              <img src="/img/linkedin.webp" alt="linked in"/>
+            </a>
+            <a href="https://www.hackerrank.com/figueroa0609" target="_blank" rel="noreferrer" className="link">
+              <img src="/img/hackerrank.webp" alt="Hacker Rank"/>
+            </a>
+          </div>
+        </div>
       </div>
     );
   }

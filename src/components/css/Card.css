@@ -3,8 +3,7 @@
     flex-direction: row;
     padding: 10px;
     width: 85vw;
-    margin-left: auto;
-    margin-right: auto;
+    margin:0 !important;
 }
 
 .card .title {
@@ -15,7 +14,8 @@
 
 .card .content {
    font-size:xx-large;
-   margin-right: 10px;
+   margin-right: 2rem;
+   margin-top: 2rem;
 }
 
 .card img {
