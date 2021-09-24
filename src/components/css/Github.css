@@ -1,3 +1,8 @@
+.Github {
+    background-color: #3F3F4A;
+    color: #AA9AA0;
+}
+
 .repo-list {
     display:flex;
     flex-direction: column;
@@ -10,6 +15,7 @@
     border-top-style: solid;
     border-top-color: #A4A4A1;
     border-top-width:2px;
+    font-size: x-large;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -17,8 +23,9 @@
 }
 
 .repo .title {
+    color: #BF8D8C !important;
+    font-size: 48px;
     margin-top: 10px;
-    color: #3A4ADC;
     font-weight:bold;
     width:fit-content;
     width:-moz-fit-content;
@@ -35,6 +42,7 @@
     display:flex;
     flex-direction: row;
     align-items:center;
+    font-size: x-large;
 }
 
 .repo .website {
@@ -47,6 +55,7 @@
     align-items:center;
     text-align: center;
     width: 88px;
+    font-size: large;
 }
 
 .repo .description {
@@ -68,5 +77,6 @@
     margin: 2px;
     margin-left: 5px;
     border-radius: 10px;
-    background-color: #AAAAAA;
+    background-color: #756B6A;
+    color: #DAD4DF;
 }
