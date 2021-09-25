@@ -6,6 +6,11 @@ import Card from './subcomponents/Card';
 
 
 class About extends React.Component {
+  /**
+   * About - About page
+   * This component doesn't require any props to be passed down.
+   * Using different components, about is a page that displays about information.
+   */
   componentDidMount () {
     document.title = "About";
   }
@@ -13,7 +18,9 @@ class About extends React.Component {
   render() {
     return (
       <div className="About">
+
         <Theater title="About" description="This page has information about me and about this site." extraClasses="h-50v" background="/img/sunset.webp"/>
+
         <Card title="Build with React" image="/img/react.webp">
           This website is created with <a href="https://reactjs.org/">React</a>, a javascript library for creating user interfaces and webapps.
           React uses a component based design to help developers create easily re-usable code, and to help streamline the development process.
@@ -28,11 +35,13 @@ class About extends React.Component {
         </Card>
 
         <div className="social">
+
           <div className="title">
             Social Media:
           </div>
 
           <div className="links">
+
             <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer" className="link">
               <img src="/img/github.webp" alt="Github"/>
             </a>
@@ -40,11 +49,15 @@ class About extends React.Component {
             <a href="https://www.linkedin.com/in/camerin-figueroa-2662bb157/" target="_blank" rel="noreferrer" className="link">
               <img src="/img/linkedin.webp" alt="linked in"/>
             </a>
+
             <a href="https://www.hackerrank.com/figueroa0609" target="_blank" rel="noreferrer" className="link">
               <img src="/img/hackerrank.webp" alt="Hacker Rank"/>
             </a>
+
           </div>
+
         </div>
+
       </div>
     );
   }

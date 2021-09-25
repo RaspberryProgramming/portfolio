@@ -5,6 +5,13 @@ import {getRepos, getRepoLanguages} from '../actions';
 import Theater from './subcomponents/Theater';
 import _ from 'lodash';
 class Github extends React.Component {
+  /**
+   * Github - github repository list of a specific user.
+   * Github doesn't take any props and is
+   * a main component that will be directly displayed in the App component.
+   * Github will run an action that grabs a list of repositories, then displays them.
+   * Each language is requested once and listed for each repository.
+   */
 
   componentDidMount() {
 
