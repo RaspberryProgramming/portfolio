@@ -80,3 +80,18 @@
     background-color: #756B6A;
     color: #DAD4DF;
 }
+
+.content {
+    margin: 25px;
+    text-align: center;
+}
+
+.loading {
+    font-size: xxx-large;
+}
+
+.avatar {
+    border-radius: 10rem;
+    height: 10rem;
+    width: 10rem;
+}

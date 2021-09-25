@@ -13,7 +13,7 @@ const App = (props) => {
         <Navigation />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/github" component={Github} />
+          <Route path="/github" render={(props) => <Github {...props} />} />
           <Route path="/about" component={About} />
         </Switch>
       </div>

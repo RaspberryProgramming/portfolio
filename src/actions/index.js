@@ -1,7 +1,18 @@
 import github from '../apis/github';
 
-export const getRepos = () => async (dispatch, getState) => {
-  const response = await github.get('/users/RaspberryProgramming/repos');
+export const getUser = (username) => async (dispatch, getState) => {
+  const response = await github.get(`/users/${username}`);
+
+  console.log(response.data);
+
+  dispatch({
+    type: 'GET_USER',
+    payload: response.data,
+  })
+};
+
+export const getRepos = (username) => async (dispatch, getState) => {
+  const response = await github.get(`/users/${username}/repos`); // axios request for repositories
 
   dispatch({
     type: 'GET_REPOS',
@@ -10,6 +21,8 @@ export const getRepos = () => async (dispatch, getState) => {
 };
 
 export const updateEmailBody = (event) => async (dispatch, getState) => {
+  // Update the email body
+
   dispatch({
     type: 'UPDATE_EMAIL_BODY',
     payload: event.target.value,
@@ -17,15 +30,16 @@ export const updateEmailBody = (event) => async (dispatch, getState) => {
 };
 
 export const toggleContactModal = () => async (dispatch, getState) => {
+  // Toggle the contact modal
 
   dispatch({
     type: 'TOGGLE_CONTACT_MODAL',
   });
 };
 
-export const getRepoLanguages = (repoName) => async (dispatch, getState) => {
+export const getRepoLanguages = (username, repoName) => async (dispatch, getState) => {
 
-  const response = await github.get(`/repos/RaspberryProgramming/${repoName}/languages`); // Request languages for the repo
+  const response = await github.get(`/repos/${username}/${repoName}/languages`); // Request languages for the repo
 
   // Each repo will have it's own object with it's languages
   let payload = {};
