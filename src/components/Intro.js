@@ -7,6 +7,8 @@ import Topic from './subcomponents/Topic';
 class Intro extends React.Component {
   constructor() {
     super();
+
+    // Defaults for the state
     this.state = {
         start: false,
         prev: 'previous',
@@ -20,46 +22,66 @@ class Intro extends React.Component {
   }
 
   handleKey = (e) => {
+      /**
+       * handleKey - Handle key events and hand off to handleInput
+      */
     switch(e.key) {
-        case "ArrowUp":
+        case "ArrowUp": // If received an up Arrow
             this.handleInput('up');
             break;
-        case "ArrowDown":
+        case "ArrowDown": // If received a down Arrow
             this.handleInput('down')
+            break;
+        default:
             break;
     }
   }
 
   handleInput = (input) => {
-    console.log(this.state.prevLoc);
-    console.log(this.state.currLoc)
-    console.log(this.state.nextLoc)
+    /**
+     * handleInput - handle input events. A majority of the functionality is to scroll through Intro topics
+     */
+
+    // Up Arrow
     if (input === "up" && this.state.currLoc > 0) {
+
+        // Activate animation going to next topic
         this.setState({
             prev: 'current',
             curr: 'next',
         });
+
+        // Wait 500 ms until the transition is finished
         setTimeout(()=>{
+            // Once timeout finishes, place topics in correct location without transition
             this.setState({
                 prev: 'previous notrans',
                 curr: 'current notrans',
-                prevLoc: this.state.prevLoc-1,
+                prevLoc: this.state.prevLoc-1, // Move correct topics into necessary divs
                 currLoc: this.state.currLoc-1,
                 nextLoc: this.state.nextLoc-1,
             });
+
+            // wait another 20 ms to 
             setTimeout(()=>{
-            this.setState({
+            this.setState({ // remove notrans from each div
                 prev: 'previous',
                 curr: 'current',
             });
+
             }, 20);
+
         }, 500);
     } else if (input === "down" && this.state.nextLoc < this.topics.length) {
+        // Activate transition going to previous topic
         this.setState({
             curr: 'previous',
             next: 'current'
         });
+
+        // wait 500 ms before placing all topics into correct divs
         setTimeout(()=>{
+            // move all topics into correct divs
             this.setState({
                 curr: 'current notrans',
                 next: 'next notrans',
@@ -67,6 +89,8 @@ class Intro extends React.Component {
                 currLoc: this.state.currLoc+1,
                 nextLoc: this.state.nextLoc+1,
             });
+
+            // wait 20ms and remove notrans
             setTimeout(()=>{
             this.setState({
                 curr: 'current',
@@ -82,6 +106,21 @@ class Intro extends React.Component {
     
   };
 
+  componentDidMount() {
+    setTimeout(()=>{ // At the start, wait 100ms and enable intro
+        this.setState({
+            start: true,
+        });
+    }, 100);
+
+    document.title = "Introduction"; // Set document title
+
+    // Hide the navigation
+    this.props.hideNavigation();
+
+  }
+
+  // Topics to display in intro
   topics = [
       <Topic title="Studied at Marist College" background="img/marist.webp">
           <a href="https://www.marist.edu/">Marist.edu</a>
@@ -95,6 +134,7 @@ class Intro extends React.Component {
   
   render() {
 
+    // Render page
     return (
         <div onKeyDown={this.handleKey} tabIndex="0" className={this.state.start ? 'intro start':'intro'}>
             <div id="previous" className={this.state.prev}>
@@ -108,19 +148,6 @@ class Intro extends React.Component {
             </div>
         </div>
     );
-  }
-
-  componentDidMount() {
-    setTimeout(()=>{
-        this.setState({
-            start: true,
-        });
-    }, 100);
-
-    document.title = "Introduction";
-
-    this.props.hideNavigation();
-
   }
 }
 
