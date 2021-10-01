@@ -1,0 +1,56 @@
+.intro {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    width:100vw;
+    height:100vh;
+    display:flex;
+}
+
+.intro.start {
+    color:white;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.intro .previous {
+    opacity: 0;
+    height:0;
+    width:100vw;
+    display: flex;
+    position:fixed;
+    transition: opacity 500ms ease-out, height 500ms ease-out, top 500ms ease-out;
+    top:0;
+    left:0;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro .current {
+    opacity: 1;
+    height:100vh;
+    width:100vw;
+    display: flex;
+    position:fixed;
+    transition: opacity 500ms ease-in, height 500ms ease-in, top 500ms ease-in;
+    top:0;
+    left:0;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro .next {
+    opacity: 0;
+    height:0;
+    width:100vw;
+    display: flex;
+    position:fixed;
+    transition: opacity 500ms ease-out, height 500ms ease-out, top 500ms ease-out;
+    top:100vh;
+    left:0;
+    justify-content: center;
+    align-items: center;
+}
+
+.notrans {
+    transition: none !important;
+}

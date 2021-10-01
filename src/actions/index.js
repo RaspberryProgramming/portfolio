@@ -50,3 +50,27 @@ export const getRepoLanguages = (username, repoName) => async (dispatch, getStat
     payload: payload,
   });
 }
+
+export const setIntro = (start=true) => async (dispatch, getState) => {
+  
+  dispatch({
+    type: 'SET_INTRO',
+    payload: start,
+  });
+}
+
+export const hideNavigation = () => async (dispatch, getState) => {
+  
+  dispatch({
+    type: 'SET_NAVIGATION',
+    payload: false,
+  });
+}
+
+export const showNavigation = () => async (dispatch, getState) => {
+  
+  dispatch({
+    type: 'SET_NAVIGATION',
+    payload: true,
+  });
+}

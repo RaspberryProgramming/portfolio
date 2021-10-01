@@ -1,0 +1,19 @@
+.topic {
+    height: 100vh;
+    width: 100vw;
+    background-size:cover;
+    display:flex;
+    align-items:center;
+
+}
+
+.topic .content {
+    width: 100vw;
+    background: rgba(57, 57, 57, 0.75);
+    padding:0;
+    margin:0;
+    padding: 10px;
+    height:fit-content;
+}
+
+.topic {}
