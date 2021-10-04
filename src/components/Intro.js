@@ -122,12 +122,20 @@ class Intro extends React.Component {
 
   // Topics to display in intro
   topics = [
+      <Topic title="Welcome to My Portfolio" background="/img/background.webp">
+        <div>
+            This website helps you access the projects that I've worked on. You can navigate
+            at the top to different locations in the site. Within you can find information about me,
+            my github repositories, and some youtube videos I've posted. This website is coded with
+            React/Redux and hosted over Vercel. You can email me at <a href="mailto:camerin@camsprojects.online">camerin@camsprojects.online</a>.
+        </div>
+      </Topic>,
       <Topic title="Studied at Marist College" background="img/marist.webp">
           <a href="https://www.marist.edu/">Marist.edu</a>
       </Topic>,
-      <Topic link="/github" title="You can view my github repositories" background="img/background.webp">
+      <Topic link="/github" title="You can view my github repositories" background="img/space.webp">
       </Topic>,
-      <Topic link="/" title="Open the Website">
+      <Topic link="/" title="Open the Website" background="/img/sunset.webp">
           <a href="/" className="btn">Explore Cam's Projects</a>
       </Topic>
     ];
