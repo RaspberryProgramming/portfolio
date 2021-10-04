@@ -26,6 +26,7 @@
 }
 
 .intro .current {
+    z-index: 10;
     opacity: 1;
     height:100vh;
     width:100vw;
@@ -53,4 +54,22 @@
 
 .notrans {
     transition: none !important;
+}
+
+.intro .children {
+    width: 80vw;
+}
+
+.intro .title {
+    padding: 10px;
+}
+
+.intro .content {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.intro .children a {
+    color: #C4C4C4
 }
