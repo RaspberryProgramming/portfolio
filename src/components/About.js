@@ -53,6 +53,9 @@ class About extends React.Component {
             <a href="https://www.hackerrank.com/figueroa0609" target="_blank" rel="noreferrer" className="link">
               <img src="/img/hackerrank.webp" alt="Hacker Rank"/>
             </a>
+            <a href="https://app.hackthebox.eu/profile/734741" target="_blank" rel="noreferrer" className="link">
+              <img src="/img/hackthebox.webp" alt="Hack The Box"/>
+            </a>
 
           </div>
 
