@@ -54,12 +54,15 @@ class Intro extends React.Component {
         // Wait 500 ms until the transition is finished
         setTimeout(()=>{
             // Once timeout finishes, place topics in correct location without transition
+            let prevloc = this.state.prevLoc-1;
+            let currloc = this.state.currLoc-1;
+            let nextloc = this.state.nextLoc-1;
             this.setState({
                 prev: 'previous notrans',
                 curr: 'current notrans',
-                prevLoc: this.state.prevLoc-1, // Move correct topics into necessary divs
-                currLoc: this.state.currLoc-1,
-                nextLoc: this.state.nextLoc-1,
+                prevLoc: prevloc, // Move correct topics into necessary divs
+                currLoc: currloc,
+                nextLoc: nextloc,
             });
 
             // wait another 20 ms to 
@@ -82,12 +85,15 @@ class Intro extends React.Component {
         // wait 500 ms before placing all topics into correct divs
         setTimeout(()=>{
             // move all topics into correct divs
+            let prevloc = this.state.prevLoc+1;
+            let currloc = this.state.currLoc+1;
+            let nextloc = this.state.nextLoc+1;
             this.setState({
                 curr: 'current notrans',
                 next: 'next notrans',
-                prevLoc: this.state.prevLoc+1,
-                currLoc: this.state.currLoc+1,
-                nextLoc: this.state.nextLoc+1,
+                prevLoc: prevloc, // Move correct topics into necessary divs
+                currLoc: currloc,
+                nextLoc: nextloc,
             });
 
             // wait 20ms and remove notrans
@@ -127,7 +133,7 @@ class Intro extends React.Component {
             This website helps you access the projects that I've worked on. You can navigate
             at the top to different locations in the site. Within you can find information about me,
             my github repositories, and some youtube videos I've posted. This website is coded with
-            React/Redux and hosted over Vercel. You can email me at <a href="mailto:camerin@camsprojects.online">camerin@camsprojects.online</a>.
+            React/Redux and hosted over Vercel. You can email me at <a href="mailto:cam@camcodes.com">cam@camcodes.com</a>.
         </div>
       </Topic>,
       <Topic title="Studied at Marist College" background="img/marist.webp">
