@@ -4,6 +4,7 @@
     width:100vw;
     height:100vh;
     display:flex;
+    flex-direction: column;
 }
 
 .intro.start {
@@ -72,4 +73,21 @@
 
 .intro .children a {
     color: #C4C4C4
+}
+
+.intro .navbutton {
+    z-index: 12;
+    font-size: 48px;
+    width: 100%;
+    top:0;
+    left: 50%;
+    background-color: rgba(45, 45, 45, 0.40);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.intro .navbutton.bottom {
+    margin-top: auto;
 }

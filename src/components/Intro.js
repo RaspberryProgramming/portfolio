@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './css/Intro.css';
 import {hideNavigation, showNavigation} from '../actions';
 import Topic from './subcomponents/Topic';
+import { ChevronDoubleUp, ChevronDoubleDown } from 'react-bootstrap-icons';
 
 class Intro extends React.Component {
   constructor() {
@@ -127,6 +128,7 @@ class Intro extends React.Component {
   }
 
   // Topics to display in intro
+  // DISCLAIMER: Please add content to the topic or bugs may occur...
   topics = [
       <Topic title="Welcome to My Portfolio" background="/img/background.webp">
         <div>
@@ -140,17 +142,22 @@ class Intro extends React.Component {
           <a href="https://www.marist.edu/">Marist.edu</a>
       </Topic>,
       <Topic link="/github" title="You can view my github repositories" background="img/space.webp">
+          View a list of projects I've done right on this website. You can easily direct to github
+          where you can see the project code itself.
       </Topic>,
-      <Topic link="/" title="Open the Website" background="/img/sunset.webp">
+      <Topic title="Open the Website" background="/img/sunset.webp">
           <a href="/" className="btn">Explore Cam's Projects</a>
       </Topic>
     ];
   
   render() {
 
+    // TODO: Fix bug where scrolling too fast will allow one to exit expected topic range
+
     // Render page
     return (
         <div onKeyDown={this.handleKey} tabIndex="0" className={this.state.start ? 'intro start':'intro'}>
+            <div className='navbutton top' onClick={()=>{this.handleInput('up')}}><ChevronDoubleUp/></div>
             <div id="previous" className={this.state.prev}>
                 {this.topics[this.state.prevLoc]}
             </div>
@@ -160,6 +167,7 @@ class Intro extends React.Component {
             <div id="next" className={this.state.next}>
                 {this.topics[this.state.nextLoc]}
             </div>
+            <div className='navbutton bottom' onClick={()=>{this.handleInput('down')}}><ChevronDoubleDown/></div>
         </div>
     );
   }

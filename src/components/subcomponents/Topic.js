@@ -16,12 +16,12 @@ const Card = (props) => {
             className="topic"
             style={{backgroundImage: props.background ? `url(${props.background})`:''}}
             >
-            <a href={props.link} className="content">
+            <div className="content">
                 <div className="title">{props.title}</div>
                 <div className="children">
                     {props.children}
                 </div>
-            </a>
+            </div>
         </div>
     );
 };
