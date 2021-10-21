@@ -47,7 +47,7 @@ class About extends React.Component {
             </a>
 
             <a href="https://www.linkedin.com/in/camerin-figueroa-2662bb157/" target="_blank" rel="noreferrer" className="link">
-              <img src="/img/linkedin.webp" alt="linked in"/>
+              <img src="/img/linkedin.webp" alt="LinkedIn"/>
             </a>
 
             <a href="https://www.hackerrank.com/figueroa0609" target="_blank" rel="noreferrer" className="link">
@@ -55,6 +55,9 @@ class About extends React.Component {
             </a>
             <a href="https://app.hackthebox.eu/profile/734741" target="_blank" rel="noreferrer" className="link">
               <img src="/img/hackthebox.webp" alt="Hack The Box"/>
+            </a>
+            <a href="https://www.udemy.com/user/camerin-figueroa/" target="_blank" rel="noreferrer" className="link">
+              <img src="/img/udemy.webp" alt="Udemy"/>
             </a>
 
           </div>

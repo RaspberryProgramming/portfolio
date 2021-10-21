@@ -26,8 +26,15 @@ html, body {
     flex-direction:column;
 }
 
+.App .app-content {
+    height:100%;
+}
+
 @media only screen and (max-width: 600px) {
     .App {
         flex-direction: column-reverse;
+    }
+    .App .app-content {
+        margin-bottom: 5.5rem;
     }
 }

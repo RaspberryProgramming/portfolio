@@ -11,11 +11,13 @@ const App = (props) => {
     <BrowserRouter>
       <div className="App">
         <Navigation />
-        <Switch>
-          <Route path="/" exact component={Intro} />
-          <Route path="/github" render={(props) => <Github {...props} />} />
-          <Route path="/about" component={About} />
-        </Switch>
+        <div className="app-content">
+          <Switch>
+            <Route path="/" exact component={Intro} />
+            <Route path="/github" render={(props) => <Github {...props} />} />
+            <Route path="/about" component={About} />
+          </Switch>
+        </div>
       </div>
     </BrowserRouter>
   );

@@ -13,9 +13,10 @@
 }
 
 .card .content {
-   font-size:xx-large;
-   margin-right: 2rem;
-   margin-top: 2rem;
+    text-align:left;
+    font-size:xx-large;
+    margin-right: 2rem;
+    margin-top: 2rem;
 }
 
 .card img {

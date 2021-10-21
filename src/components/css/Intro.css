@@ -2,7 +2,7 @@
     opacity: 0;
     transition: opacity 1s ease-in-out;
     width:100vw;
-    height:100vh;
+    height:100%;
     display:flex;
     flex-direction: column;
 }
@@ -29,7 +29,7 @@
 .intro .current {
     z-index: 10;
     opacity: 1;
-    height:100vh;
+    height:100%;
     width:100vw;
     display: flex;
     position:fixed;
@@ -47,7 +47,7 @@
     display: flex;
     position:fixed;
     transition: opacity 500ms ease-out, height 500ms ease-out, top 500ms ease-out;
-    top:100vh;
+    top:100%;
     left:0;
     justify-content: center;
     align-items: center;

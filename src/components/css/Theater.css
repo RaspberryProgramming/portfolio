@@ -55,6 +55,11 @@
     color: #CFCFBA !important;
 }
 
+.theater-content h1 {
+    width:100%;
+    text-align:center;
+}
+
 @media only screen and (max-width: 600px) {
     .theater-content .description {
         width: 80vw;
