@@ -17,7 +17,7 @@ const Card = (props) => {
             style={{backgroundImage: props.background ? `url(${props.background})`:''}}
             >
             <div className="content">
-                <div className="title">{props.title}</div>
+                <h1 className="title">{props.title}</h1>
                 <div className="children">
                     {props.children}
                 </div>

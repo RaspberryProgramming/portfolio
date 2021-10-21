@@ -22,10 +22,6 @@ const Navigation = (props) => {
           About
           <FileEarmarkPerson />
         </Link>
-        <Link to="/intro">
-          View the Intro
-          <Flag />
-        </Link>
         <button className="end" onClick={()=>props.toggleContactModal()}>
           Contact Me
           <Envelope />

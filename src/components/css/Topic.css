@@ -16,4 +16,13 @@
     height:fit-content;
 }
 
-.topic {}
+.topic .title {
+    margin-top:10px;
+    margin-bottom:10px;
+    padding:0;
+}
+
+.topic .children {
+    margin-top:10px;
+    margin-bottom: 10px;
+}

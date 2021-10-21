@@ -13,10 +13,9 @@ const App = (props) => {
       <div className="App">
         <Navigation />
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Intro} />
           <Route path="/github" render={(props) => <Github {...props} />} />
           <Route path="/about" component={About} />
-          <Route path="/intro" component={Intro} />
         </Switch>
       </div>
     </BrowserRouter>

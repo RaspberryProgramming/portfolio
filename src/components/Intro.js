@@ -108,7 +108,8 @@ class Intro extends React.Component {
         
     } else if (input === "down" && this.state.nextLoc >= this.topics.length) {
         // Set something to happen when you reach the end
-
+        this.props.showNavigation();
+        localStorage.setItem('intro', true);
     }
     
   };
@@ -120,10 +121,12 @@ class Intro extends React.Component {
         });
     }, 100);
 
-    document.title = "Introduction"; // Set document title
+    document.title = "HomePage"; // Set document title
 
     // Hide the navigation
-    this.props.hideNavigation();
+    if (!localStorage.getItem('intro')) {
+        this.props.hideNavigation();
+    }
 
   }
 
@@ -139,9 +142,11 @@ class Intro extends React.Component {
         </div>
       </Topic>,
       <Topic title="Studied at Marist College" background="img/marist.webp">
-          <a href="https://www.marist.edu/">Marist.edu</a>
+          Field of Study: Computer Science
+          ...
+          College: <a href="https://www.marist.edu/">Marist.edu</a>
       </Topic>,
-      <Topic link="/github" title="You can view my github repositories" background="img/space.webp">
+      <Topic link="/github" title="Github" background="img/space.webp">
           View a list of projects I've done right on this website. You can easily direct to github
           where you can see the project code itself.
       </Topic>,
