@@ -22,7 +22,7 @@ const Modal = props => {
    *    once you're ready to display the modal. If it exists or is set to true it will display the modal.
    */
   return ReactDOM.createPortal(
-    <div onClick={props.onDismiss} className={`modal ${props.show?'show':''}`}>
+    <div onClick={props.onDismiss} className={`modal ${props.show?'show':'hide'}`}>
       <div onClick={(e) => e.stopPropagation()} className="box">
 
         <div className="title">{props.title}</div>

@@ -12,8 +12,14 @@
     align-items: center;
     transition: opacity 300ms ease-out 50ms, width 300ms ease-out 50ms, background-color 80ms ease-out;
 }
+.modal.hide * {
+    visibility: hidden;
+    transition: visibility 300ms;
+
+}
 
 .modal.show {
+    display:flex;
     width: 100%;
     background-color: rgba(0,0,0,0.4);
     opacity: 1;
@@ -21,10 +27,8 @@
 }
 
 .modal .box {
+    border: 2px solid #544545;
     border-radius: 10px;
-    border-style: solid;
-    border-color: #544545;
-    border-width: 2px;
     background-color: white;
     padding: 25px;
 }
