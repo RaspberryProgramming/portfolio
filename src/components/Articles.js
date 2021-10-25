@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './css/Articles.css';
 import Theater from './subcomponents/Theater';
 import Article from './Article';
+import { getArticles} from '../actions/index';
 import { Route, Link } from 'react-router-dom';
 
 
@@ -20,7 +22,7 @@ class Articles extends React.Component {
       
       return (
           <div>
-              "Articles"
+              {this.props.getArticles()}
           </div>
       );
   }
@@ -49,5 +51,9 @@ class Articles extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return { articles: state.articles.articles};
+}
 
-export default Articles;
+export default connect(mapStateToProps, { getArticles })(Articles);
+

@@ -1,9 +1,9 @@
 import github from '../apis/github';
+import api from '../apis/api';
 
 export const getUser = (username) => async (dispatch, getState) => {
   const response = await github.get(`/users/${username}`);
 
-  console.log(response.data);
 
   dispatch({
     type: 'GET_USER',
@@ -18,6 +18,20 @@ export const getRepos = (username) => async (dispatch, getState) => {
     type: 'GET_REPOS',
     payload: response.data,
   });
+};
+
+export const getArticles = async (dispatch, getState) => {
+  const state = getState();
+  
+  if (!state.articles || state.articles.length <= 0){
+    const response = await api.get(`/articles`); // axios request for articles json file
+    
+    dispatch({
+      type: 'GET_ARTICLES',
+      payload: response.data,
+    });
+    return response;
+  }
 };
 
 export const updateEmailBody = (event) => async (dispatch, getState) => {

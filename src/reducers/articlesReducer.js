@@ -1,4 +1,4 @@
-let articleReducer = (state={articles=[]}, action) => {
+let articlesReducer = (state={articles: []}, action) => {
     switch(action.type) {
       case "GET_ARTICLES":
         return { ...state, articles: action.payload };
@@ -9,4 +9,4 @@ let articleReducer = (state={articles=[]}, action) => {
   };
   
 
-export default articleReducer;
+export default articlesReducer;
