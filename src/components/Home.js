@@ -10,7 +10,7 @@ const Home = (props) => {
       This website helps you access the projects that I've worked on. You can navigate
       at the top to different locations in the site. Within you can find information about me,
       my github repositories, and some youtube videos I've posted. This website is coded with
-      React/Redux and hosted over Vercel. You can email me at <a href="mailto:cam@camcodes.com">cam@camcodes.com</a>.
+      React/Redux and hosted over Vercel. You can email me at <a href="mailto:cam@camscode.com">cam@camscode.com</a>.
     </div>;
 
   return (
