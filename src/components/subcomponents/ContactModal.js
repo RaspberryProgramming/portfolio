@@ -17,7 +17,7 @@ const ContactModal = props => {
     const onSubmit = (e) => {
         e.preventDefault(); // Prevent default submit function
 
-        window.open(`mailto:cam@camcodes.com?body=${props.body}`); // Open the message in user's email client
+        window.open(`mailto:cam@camscode.com?body=${props.body}`); // Open the message in user's email client
 
         props.toggleContactModal(); // Close the contact modal
     };
