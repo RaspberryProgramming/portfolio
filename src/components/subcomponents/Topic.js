@@ -11,8 +11,10 @@ const Card = (props) => {
      * background - a url to the background image
      * 
      */
+
     return (
-        <div
+        <a
+            href={props.link}
             className="topic"
             style={{backgroundImage: props.background ? `url(${props.background})`:''}}
             >
@@ -22,7 +24,7 @@ const Card = (props) => {
                     {props.children}
                 </div>
             </div>
-        </div>
+        </a>
     );
 };
 
