@@ -27,12 +27,22 @@ class About extends React.Component {
           JSX is a part of react which makes it easy to design websites directly in javascript code.
         </Card>
 
-        <Card title="Camerin Figueroa" image={"/img/profile.webp"}>
-          I am a computer science student at Marist College in Poughkeepsie, NY. I'm closing in on my Bachelors Degree in Computer Science.
-          I went to Orange County Community College for my Associates Degree in Computer Science. You can find a few of my projects on my
-          <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer"> Github</a> or look through a list in the
-          <Link to="/github"> Github Page</Link>. You can email me at <a href="mailto:cam@camcodes.com">cam@camcodes.com</a>
+        <Card title="College Experience" image="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Marist_College_Seal_-_Vector.svg/1200px-Marist_College_Seal_-_Vector.svg.png">
+          Throughout my college experience I've been able to improve my understanding of how computers work and how to design different software.
+          I have completed my A.S. degree from Orange County Community College in Computer Science. In the past 2 years I've been working towards my
+          Bachelors degree in computer science at Marist College in Poughkeepsie. Throughout my college experience I've been able to work with others in
+          teams and I am currently as of the Fall 2021 Semester been working on a team for a Capstone Project which I can hopefully list on this website
+          at the end of this semester.
         </Card>
+
+        <Card title="Camerin Figueroa" image={"/img/profile.webp"}>
+          You can find a few of my projects on my
+          <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer"> Github</a> or look through a list of projects on this website
+          at the <Link to="/github"> Github Page</Link>. You can email me at <a href="mailto:cam@camscode.com">cam@camscode.com</a>. You can also find more
+          social media below, just click the image and it'll bring you to the selected website.
+        </Card>
+
+
 
         <div className="social">
 

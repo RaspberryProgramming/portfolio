@@ -29,9 +29,11 @@
     border-width: 2px;
     border-color: #A5B2A4;
     border-radius: 5px;
+    padding: 2px;
     height: 10rem;
     width: 10rem;
     margin: auto;
+    background-color: #FAFAFF
 }
 
 @media only screen and (max-width: 600px) {
