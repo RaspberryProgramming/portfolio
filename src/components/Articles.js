@@ -5,7 +5,7 @@ import Theater from './subcomponents/Theater';
 import Article from './Article';
 import Listing from './subcomponents/Listing';
 import { getArticles } from '../actions';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 class Articles extends React.Component {

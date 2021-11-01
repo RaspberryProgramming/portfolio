@@ -4,7 +4,6 @@ import "./css/App.css";
 import Navigation from './Navigation';
 import Github from './Github';
 import Articles from './Articles';
-import Article from './Article';
 import About from './About';
 import Intro from './Intro';
 
