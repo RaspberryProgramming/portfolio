@@ -24,7 +24,6 @@ class Articles extends React.Component {
 
 
     const render = this.props.articles.map((article) => {
-      console.log(article);
       return (
         <Listing title={article.title} link={"/articles/"+article.id} key={article.id}>
           <div className="description">
@@ -42,8 +41,11 @@ class Articles extends React.Component {
   }
 
   article(match) {
-    console.log(this.props.articles)
-    return <Article article={this.props.articles[match.params.id]}/>;
+    if (this.props.articles) {
+      return <Article article={this.props.articles[match.params.id]}/>;
+    } else {
+      return <div></div>;
+    }
   }
 
   render() {
