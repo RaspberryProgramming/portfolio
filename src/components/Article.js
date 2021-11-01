@@ -1,10 +1,12 @@
 import React from 'react';
 import './css/Articles.css';
 
-const Article = ({match}) => {
+const Article = ({article}) => {
     return (
         <div>
-            "Article: " {match}
+            <div>{article.title}</div>
+            <div>{article.desc}</div>
+            <div>{article.contents}</div>
         </div>
         );
 }

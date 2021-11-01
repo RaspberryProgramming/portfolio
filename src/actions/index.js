@@ -1,6 +1,7 @@
 import github from '../apis/github';
 import api from '../apis/api';
 
+
 export const getUser = (username) => async (dispatch, getState) => {
   const response = await github.get(`/users/${username}`);
 
@@ -20,17 +21,16 @@ export const getRepos = (username) => async (dispatch, getState) => {
   });
 };
 
-export const getArticles = async (dispatch, getState) => {
-  const state = getState();
-  
-  if (!state.articles || state.articles.length <= 0){
-    const response = await api.get(`/articles`); // axios request for articles json file
-    
+export const getArticles = () => async (dispatch, getState) => {
+  const { articles } = getState();
+
+  if (!articles.articles || articles.articles.length <= 0){
+    const response = await api.get(`/articles.json`); // axios request for articles json file
+
     dispatch({
       type: 'GET_ARTICLES',
-      payload: response.data,
+      payload: response.data.articles,
     });
-    return response;
   }
 };
 
