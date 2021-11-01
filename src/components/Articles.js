@@ -41,7 +41,7 @@ class Articles extends React.Component {
   }
 
   article(match) {
-    if (this.props.articles) {
+    if (this.props.articles.length > 0) {
       return <Article article={this.props.articles[match.params.id]}/>;
     } else {
       return <div></div>;
