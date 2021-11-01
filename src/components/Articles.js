@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import './css/Articles.css';
 import Theater from './subcomponents/Theater';
 import Article from './Article';
-import { getArticles} from '../actions/index';
+import Listing from './subcomponents/Listing';
+import { getArticles } from '../actions';
 import { Route, Link } from 'react-router-dom';
 
 
@@ -15,24 +16,34 @@ class Articles extends React.Component {
   componentDidMount() {
 
     document.title = "Articles";
+    this.props.getArticles();
     
   }
 
   renderArticles() {
-      
+
+
+    const render = this.props.articles.map((article) => {
+      console.log(article);
       return (
-          <div>
-              {this.props.getArticles()}
+        <Listing title={article.title} link={"/articles/"+article.id} key={article.id}>
+          <div className="description">
+            {article.desc}
           </div>
+        </Listing>
       );
+    });
+
+    return (
+        <div className="listings">
+            {render}
+        </div>
+    );
   }
 
   article(match) {
-      return (
-        <div>
-            {match.params.id}
-        </div>
-        );
+    console.log(this.props.articles)
+    return <Article article={this.props.articles[match.params.id]}/>;
   }
 
   render() {
