@@ -8,36 +8,45 @@ const Article = ({article}) => {
         let ind = 0;
         let tick=false;
 
-        for (let i = 0; i < text.length; i++) {
-            if (text[i] === '`') {
-                if (tick) {
-                    //output[ind++] += text[i]
+        for (let i = 0; i < text.length; i++) { // Iterate through input
+            if (text[i] === '`') { // Detect Code Delimiter
+                if (tick) { // Close the code section
+
                     output[++ind] = ""
                     tick = false;
-                } else {
-                    //output[++ind] = text[i]
+
+                } else { // Start a new code section
+
                     type.push(1);
                     output[++ind] = ""
                     tick = true;
+
                 }
                 
-            } else {
-                if (output.length > type.length) {
+            } else { // Append text to output
+
+                if (output.length > type.length) { // If this is the beggining of a default text type
                     type.push(0);
                     output[ind] = ""
                 }
+                
                 output[ind] += text[i]
             }
         }
-        let code = [...output.keys()].map((i)=>{
-            console.log(output[i], type[i]);
-            if (type[i] == 0){
+
+        return [...output.keys()].map((i)=>{ // Format text and return as jsx
+            
+            
+            if (type[i] === 0){ // Return default text type
+
                 return <div key={i}>{output[i]}</div>;
-            } else {
+
+            } else if(type[i] == 1) { // Return Code text type
+
                 return <div className="code" key={i}>{output[i]}</div>;
+
             }
         });
-        return code
         
     };
 
