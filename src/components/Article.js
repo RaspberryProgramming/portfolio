@@ -45,6 +45,8 @@ const Article = ({article}) => {
 
                 return <div className="code" key={i}>{output[i]}</div>;
 
+            } else {
+                return <div></div>;
             }
         });
         
