@@ -29,7 +29,7 @@ const Article = ({article}) => {
                     type.push(0);
                     output[ind] = ""
                 }
-                
+
                 output[ind] += text[i]
             }
         }
@@ -41,7 +41,7 @@ const Article = ({article}) => {
 
                 return <div key={i}>{output[i]}</div>;
 
-            } else if(type[i] == 1) { // Return Code text type
+            } else if(type[i] === 1) { // Return Code text type
 
                 return <div className="code" key={i}>{output[i]}</div>;
 
