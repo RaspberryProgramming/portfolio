@@ -4,7 +4,7 @@
             "id": 0,
             "title": "Printing in Python",
             "desc":"How to print to the terminal in python",
-            "contents": "Hello and this is my tutorial on how to print in python3. First you want to open a python interpreter. Next type the following: `print('Hello World')` After that you have printed Hello World to the screen"
+            "contents": "*Introduction* This is my tutorial on how to print in python3. The print function is an easy way to show your users important information, design menus, and more. The print command is simple in it's usage. First you want to open a python interpreter. Next type the following: `print('Hello World')` After that you Hello World printed to the screen. You can check out more articles by scrolling down to the list of articles on this page."
         }
     ]
 }
