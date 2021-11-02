@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './css/Articles.css';
-import Theater from './subcomponents/Theater';
 import Article from './Article';
 import Listing from './subcomponents/Listing';
 import { getArticles } from '../actions';
@@ -52,11 +51,6 @@ class Articles extends React.Component {
 
     return (
       <div className="Articles">
-          <Theater
-            title="Articles"
-            description="Self written articles to help share information I've learned in the past."
-            extraClasses="h-50v"
-          />
           <Route path="/articles/:id" render={({match})=>{return this.article(match)}} />
           {this.renderArticles()}
       </div>

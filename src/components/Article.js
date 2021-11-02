@@ -1,4 +1,5 @@
 import React from 'react';
+import Theater from './subcomponents/Theater';
 import './css/Articles.css';
 
 const Article = ({article}) => {
@@ -54,8 +55,11 @@ const Article = ({article}) => {
 
     return (
         <div className="article">
-            <div className="title">{article.title}</div>
-            <div className="description">{article.desc}</div>
+            <Theater
+            title={article.title}
+            description={article.desc}
+            extraClasses="h-50v"
+            />
             <div className="content">{articleFormatter(article.contents)}</div>
         </div>
         );

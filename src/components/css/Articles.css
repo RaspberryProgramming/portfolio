@@ -17,6 +17,7 @@
 
 .article .content {
     width: 80vw;
+    text-align:left;
 }
 
 .article .code {
