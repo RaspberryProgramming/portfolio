@@ -2,9 +2,9 @@
     "articles": [
         {
             "id": 0,
-            "title": "Test Article",
-            "desc":"This is a description",
-            "contents": "Hello World `SomeCode``MoreCode`Apple"
+            "title": "Printing in Python",
+            "desc":"How to print to the terminal in python",
+            "contents": "Hello and this is my tutorial on how to print in python3. First you want to open a python interpreter. Next type the following: `print('Hello World')` After that you have printed Hello World to the screen"
         }
     ]
 }
