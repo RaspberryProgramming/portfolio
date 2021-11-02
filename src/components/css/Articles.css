@@ -5,16 +5,6 @@
     flex-direction: column;
 }
 
-.article .title {
-    font-size: 32px;
-    margin: 10px;
-}
-
-.article .description {
-    margin: 10px;
-    font-size: 18px;
-}
-
 .article .content {
     width: 80vw;
     text-align:left;
@@ -26,4 +16,11 @@
     color: gray;
     border-radius: 5px;
     margin: 10px;
+}
+
+.article .h1 {
+    font-size: 24px;
+    font-weight:bolder;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
