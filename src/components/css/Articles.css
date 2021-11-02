@@ -1,0 +1,28 @@
+.article {
+    color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.article .title {
+    font-size: 32px;
+    margin: 10px;
+}
+
+.article .description {
+    margin: 10px;
+    font-size: 18px;
+}
+
+.article .content {
+    width: 80vw;
+}
+
+.article .code {
+    padding: 10px;
+    background-color: #3A3B3B;
+    color: gray;
+    border-radius: 5px;
+    margin: 10px;
+}

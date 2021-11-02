@@ -46,17 +46,17 @@ const Article = ({article}) => {
                 return <div className="code" key={i}>{output[i]}</div>;
 
             } else {
-                return <div></div>;
+                return <div key={i}></div>;
             }
         });
         
     };
 
     return (
-        <div>
-            <div>{article.title}</div>
-            <div>{article.desc}</div>
-            <div>{articleFormatter(article.contents)}</div>
+        <div className="article">
+            <div className="title">{article.title}</div>
+            <div className="description">{article.desc}</div>
+            <div className="content">{articleFormatter(article.contents)}</div>
         </div>
         );
 }
