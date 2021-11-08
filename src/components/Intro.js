@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './css/Intro.css';
-import {hideNavigation, showNavigation} from '../actions';
 import Topic from './subcomponents/Topic';
 import { ChevronDoubleUp, ChevronDoubleDown } from 'react-bootstrap-icons';
 
@@ -108,8 +107,6 @@ class Intro extends React.Component {
         
     } else if (input === "down" && this.state.nextLoc >= this.topics.length) {
         // Set something to happen when you reach the end
-        this.props.showNavigation();
-        localStorage.setItem('intro', true);
     }
     
   };
@@ -122,11 +119,6 @@ class Intro extends React.Component {
     }, 100);
 
     document.title = "HomePage"; // Set document title
-
-    // Hide the navigation
-    if (!localStorage.getItem('intro')) {
-        this.props.hideNavigation();
-    }
 
   }
 
@@ -178,4 +170,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {hideNavigation, showNavigation})(Intro);
+export default connect(mapStateToProps, {})(Intro);
