@@ -72,19 +72,3 @@ export const setIntro = (start=true) => async (dispatch, getState) => {
     payload: start,
   });
 }
-
-export const hideNavigation = () => async (dispatch, getState) => {
-  
-  dispatch({
-    type: 'SET_NAVIGATION',
-    payload: false,
-  });
-}
-
-export const showNavigation = () => async (dispatch, getState) => {
-  
-  dispatch({
-    type: 'SET_NAVIGATION',
-    payload: true,
-  });
-}
