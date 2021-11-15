@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {toggleContactModal} from '../actions'
 import './css/Navigation.css';
 import { HouseDoor, FileEarmarkPerson, Github, Envelope, Book } from 'react-bootstrap-icons';
 import ContactModal from './subcomponents/ContactModal';
@@ -33,4 +35,8 @@ const Navigation = (props) => {
 
 }
 
-export default Navigation;
+const mapStateToProps = (state) => {
+  return {modal: state.contactModal.contactModal};
+}
+
+export default connect(mapStateToProps, {toggleContactModal})(Navigation);
