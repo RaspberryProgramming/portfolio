@@ -8,19 +8,16 @@ const Article = ({article}) => {
         let type = [];
         let ind = 0;
         let tick=false;
-        let delimiters = ['', '`', '*'];
+        let delimiters = ['', '`', '*', '~'];
 
         for (let i = 0; i < text.length; i++) { // Iterate through input
-            console.log(text[i]);
             if (delimiters.indexOf(text[i]) !== -1) { // Detect Code Delimiter
                 
                 if (tick) { // Close the code section
-                    console.log(1);
                     output[++ind] = ""
                     tick = false;
 
                 } else { // Start a new code section
-                    console.log(2);
                     type.push(delimiters.indexOf(text[i]));
 
                     if (!output[ind]) {
@@ -44,15 +41,11 @@ const Article = ({article}) => {
 
                 }
 
-                console.log(3);
 
 
                 output[ind] += text[i]
             }
         }
-
-        console.log(output);
-        console.log(type);
 
         return [...output.keys()].map((i)=>{ // Format text and return as jsx
             
@@ -69,7 +62,12 @@ const Article = ({article}) => {
 
                 return <div className="h1" key={i}>{output[i]}</div>;
 
-            }else {
+            } else if (type[i] === 3) {
+
+                return <li className="li" key={i}>{output[i]}</li>;
+
+        
+            } else {
                 return <div key={i}></div>;
             }
         });
