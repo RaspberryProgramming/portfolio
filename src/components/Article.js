@@ -15,7 +15,7 @@ const Article = ({article}) => {
             if (text.slice(i, i+4) === "http"){ // slice from i to 4 chars plus and check for http
                 let x = i; // store i in x so the location is not modified
 
-                for (i; text[i] != " " && i < text.length; i++){} // iterate until we find the end of the link denoted by a space
+                for (i; text[i] !== " " && i < text.length; i++){} // iterate until we find the end of the link denoted by a space
                 
                 if (output[loc] !== "") { // if the current output location isn't empty, increment loc
                     loc++;
