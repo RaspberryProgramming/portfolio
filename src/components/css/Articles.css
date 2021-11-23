@@ -3,6 +3,24 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    max-height:0;
+    overflow: hidden;
+    transition: max-height 1s ease;
+
+}
+
+.article.open {
+    max-height:100vh;
+    transition: max-height 1s ease;
+}
+
+.article.close {
+    max-height:100vh;
+}
+
+.article.show {
+    max-height:none;
+
 }
 
 .article .content {
