@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Theater from './subcomponents/Theater';
 import './css/Articles.css';
 
 const Article = ({article}) => {
+    const [show, setShow] = useState("");
+    const [currArticle, setCurrArticle] = useState("");
+
+    useEffect(()=>{
+        if (currArticle === ""){
+            console.log("A");
+            if (show === "") {
+                setCurrArticle(article);
+                setShow("open");
+                setTimeout(() =>{
+                    setShow("show");
+                }, 1024)
+            } else {
+                setShow("");
+            }
+        } else if (currArticle !== article) {
+            console.log("B");
+            setCurrArticle(article);
+            setShow("close");
+            setTimeout(()=>{
+                setShow("");
+                setTimeout(()=>{
+                    setShow("open");
+                    setTimeout(() =>{
+                        setShow("show");
+                    }, 1024);
+                }, 1024);
+            }, 24);
+        }
+    });
+    
     let linkProcessor = (text) => {
         /**
          * Given some text, processes and returns jsx with any link represented as an anchor
@@ -107,9 +138,9 @@ const Article = ({article}) => {
         });
         
     };
-
+    
     return (
-        <div className="article">
+        <div className={"article " + show}>
             <Theater
             title={article.title}
             description={article.desc}
