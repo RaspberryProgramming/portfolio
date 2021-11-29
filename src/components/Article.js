@@ -44,7 +44,6 @@ const Article = ({article}) => {
         /**
          * Given some text, processes and returns jsx with any link represented as an anchor
          */
-
         let output = [""]; // Stores all text in a list
         let loc = 0; // Stores the current location in output that we're working with
 
@@ -80,7 +79,6 @@ const Article = ({article}) => {
         let tmp;
         let output = [""]; // Stores all text in a list
         let loc = 0; // Stores the current location in output that we're working with
-
         for (let i = 0; i < text.length; i++) { // Iterate through the entire text string
             if (!React.isValidElement(text[i])) {
                 tmp = [""];
@@ -116,6 +114,7 @@ const Article = ({article}) => {
         let tick=false; // used to check if we're currently in formatted text.
         let delimiters = ['', '`', '*', '~']; // Denotes characters used to format
 
+        
         for (let i = 0; i < text.length; i++) { // Iterate through input
             if (delimiters.indexOf(text[i]) !== -1) { // Detect Code Delimiter
                 
@@ -181,7 +180,7 @@ const Article = ({article}) => {
         });
         
     };
-    
+
     return (
         <div className={"article " + show}>
             <Theater
