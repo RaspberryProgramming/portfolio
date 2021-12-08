@@ -1,13 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Theater from './subcomponents/Theater';
 import './css/Articles.css';
 
 const Article = ({article}) => {
+    const [show, setShow] = useState("");
+    const [currArticle, setCurrArticle] = useState("");
+
+    useEffect(()=>{
+        if (currArticle === ""){ // If no articles have been opened
+            if (show === "") {
+                // Set the current article and initiate the open animation
+                setCurrArticle(article);
+                setShow("open");
+                
+                // Once the animation runs, open the entire article
+                setTimeout(() =>{
+                    setShow("show");
+                }, 1024)
+            }
+
+        } else if (currArticle !== article) { // If we've changed articles
+            // Change currArticle to the actual current article and initiate close animation
+            setCurrArticle(article);
+            setShow("close");
+
+            // Step through the close animation, open animation, and fully opening the article
+            setTimeout(()=>{
+                setShow("");
+
+                setTimeout(()=>{
+
+                    setShow("open");
+
+                    setTimeout(() =>{
+                        setShow("show");
+                    }, 1024);
+                }, 1024);
+            }, 24);
+        }
+    }, [currArticle, article, show]);
+    
     let linkProcessor = (text) => {
         /**
          * Given some text, processes and returns jsx with any link represented as an anchor
          */
-
         let output = [""]; // Stores all text in a list
         let loc = 0; // Stores the current location in output that we're working with
 
@@ -36,6 +72,41 @@ const Article = ({article}) => {
         return output;
     };
 
+    let newLineProcessor = (text) => {
+        /**
+         * Given some text, processes and returns jsx with line breaks
+         */
+        let tmp;
+        let output = [""]; // Stores all text in a list
+        let loc = 0; // Stores the current location in output that we're working with
+        for (let i = 0; i < text.length; i++) { // Iterate through the entire text string
+            if (!React.isValidElement(text[i])) {
+                tmp = [""];
+                loc = 0;
+                for (let j = 0; j < text[i].length; j++){
+                    
+                    if (text[i].slice(j, j+1) === "\n"){ // slice from i to 4 chars plus and check for http
+                        if (tmp[loc] !== "") { // if the current output location isn't empty, increment loc
+                            loc++;
+                        }
+                        tmp[loc] = <br key={i+j}/>;
+                        tmp[++loc] = "";
+
+                    } else {
+                        // Append current char to output
+                        tmp[loc] += text[i][j];
+
+                    }
+                }
+                tmp[++loc] = "";
+            }
+            output.push(tmp)
+        }
+ 
+         // Return the output
+         return output;
+    };
+
     let articleFormatter = (text) => {
         let output = []; // Used to store separate formatted text
         let type = []; // Parallel to output list to signify format type
@@ -43,6 +114,7 @@ const Article = ({article}) => {
         let tick=false; // used to check if we're currently in formatted text.
         let delimiters = ['', '`', '*', '~']; // Denotes characters used to format
 
+        
         for (let i = 0; i < text.length; i++) { // Iterate through input
             if (delimiters.indexOf(text[i]) !== -1) { // Detect Code Delimiter
                 
@@ -83,6 +155,7 @@ const Article = ({article}) => {
         return [...output.keys()].map((i)=>{ // Format text and return as jsx
             
             let text = linkProcessor(output[i]); // Process links
+            text = newLineProcessor(text);
             
             if (type[i] === 0){ // Return default text type
 
@@ -109,7 +182,7 @@ const Article = ({article}) => {
     };
 
     return (
-        <div className="article">
+        <div className={"article " + show}>
             <Theater
             title={article.title}
             description={article.desc}
