@@ -15,7 +15,7 @@ const ArticleEditor = (props) => {
     return (
     <div className="ArticleEditor">
         <Article article={article}/>
-        <input type="text" onInput={e=>{setContent(e.target.value)}}/>
+        <textarea onInput={e=>{setContent(e.target.value)}} rows={256} cols={100}></textarea>
     </div>
     );
 };
