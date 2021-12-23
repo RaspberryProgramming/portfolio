@@ -15,7 +15,7 @@
 
 .theater-bg {
     
-    height: inherit;
+    height: 100%;
     width:100%;
     background-size: cover;
     background-image: url('../../img/background.webp');
