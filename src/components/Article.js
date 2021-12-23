@@ -126,7 +126,7 @@ const Article = ({article}) => {
         return [...output.keys()].map((i)=>{ // Format text and return as jsx
             
             let text = linkProcessor(output[i]); // Process links
-            
+            text = newLineProcessor(text);
             if (type[i] === 0){ // Return default text type
 
                 return <div key={i}>{text}</div>;
