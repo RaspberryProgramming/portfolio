@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../css/Listing.css';
 
 const Listing = (props) => {
@@ -12,12 +11,12 @@ const Listing = (props) => {
      */
     return (
         <div className="listing">
-            <Link to={props.link}>
+            <a href={props.link}>
                 <div className="title">{props.title}</div>
                 <div className="content">
                     {props.children}
                 </div>
-            </Link>
+            </a>
         </div>
     );    
 };
