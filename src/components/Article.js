@@ -46,26 +46,31 @@ const Article = ({article}) => {
          */
         let output = [""]; // Stores all text in a list
         let loc = 0; // Stores the current location in output that we're working with
-
-        for (let i = 0; i < text.length; i++) { // Iterate through the entire text string
+        let tmp;
+        let i = 0;
+        console.log(text);
+        while (i < text.length) { // Iterate through the entire text string
             if (text.slice(i, i+4) === "http"){ // slice from i to 4 chars plus and check for http
                 let x = i; // store i in x so the location is not modified
 
-                for (i; text[i] !== " " && i < text.length; i++){} // iterate until we find the end of the link denoted by a space
+                for (let y = i; ![" ", "\n"].includes(text[y]) && y < text.length; y++){
+                    i=y;
+                } // iterate until we find the end of the link denoted by a space
                 
                 if (output[loc] !== "") { // if the current output location isn't empty, increment loc
                     loc++;
                 }
-
+                tmp = text.slice(x, i+1);
                 // Put anchor for link into output list
-                output[loc] = <a key={i} href={text.slice(x, i)}>{text.slice(x, i)}</a>;
+                output[loc] = <a key={i} href={tmp}>{tmp}</a>;
                 output[++loc] = ""; // Create new location in output with empty string
-
             } else {
                 // Append current char to output
                 output[loc] += text[i];
 
             }
+            i++;
+            
         }
 
         // Return the output
@@ -99,7 +104,10 @@ const Article = ({article}) => {
                     }
                 }
                 tmp[++loc] = "";
+            } else {
+                tmp = text[i]
             }
+    
             output.push(tmp)
         }
  
@@ -108,15 +116,14 @@ const Article = ({article}) => {
     };
 
     let articleFormatter = (text) => {
-        let output = []; // Used to store separate formatted text
+        let output = [""]; // Used to store separate formatted text
         let type = []; // Parallel to output list to signify format type
         let ind = 0; // Denote index of output
         let tick=false; // used to check if we're currently in formatted text.
         let delimiters = ['', '`', '*', '~']; // Denotes characters used to format
 
-        
         for (let i = 0; i < text.length; i++) { // Iterate through input
-            if (delimiters.indexOf(text[i]) !== -1) { // Detect Code Delimiter
+            if (delimiters.indexOf(text[i]) >= 0) { // Detect Code Delimiter
                 
                 if (tick) { // Close the code section
                     output[++ind] = ""
@@ -125,7 +132,7 @@ const Article = ({article}) => {
                 } else { // Start a new code section
                     type.push(delimiters.indexOf(text[i]));
 
-                    if (!output[ind]) {
+                    if (output.length < ind) {
                         
                         output[ind] = "";
 
@@ -142,14 +149,14 @@ const Article = ({article}) => {
                 if (output.length > type.length) { // If this is the beggining of a default text type
 
                     type.push(0);
-                    output[ind] = ""
+                    //output[ind] = text[i]
 
+                } else if (output.length < type.length) {
+                    output[++ind] = ""
                 }
-
-
-
-                output[ind] += text[i]
             }
+
+            output[ind] += text[i]
         }
 
         return [...output.keys()].map((i)=>{ // Format text and return as jsx
