@@ -1,13 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Theater from './subcomponents/Theater';
 import './css/Articles.css';
 
 const Article = ({article}) => {
+    const [show, setShow] = useState("");
+    const [currArticle, setCurrArticle] = useState("");
+
+    useEffect(()=>{
+        if (currArticle === ""){ // If no articles have been opened
+            if (show === "") {
+                // Set the current article and initiate the open animation
+                setCurrArticle(article);
+                setShow("open");
+                
+                // Once the animation runs, open the entire article
+                setTimeout(() =>{
+                    setShow("show");
+                }, 1024)
+            }
+
+        } else if (currArticle !== article) { // If we've changed articles
+            // Change currArticle to the actual current article and initiate close animation
+            setCurrArticle(article);
+            setShow("close");
+
+            // Step through the close animation, open animation, and fully opening the article
+            setTimeout(()=>{
+                setShow("");
+
+                setTimeout(()=>{
+
+                    setShow("open");
+
+                    setTimeout(() =>{
+                        setShow("show");
+                    }, 1024);
+                }, 1024);
+            }, 24);
+        }
+    }, [currArticle, article, show]);
+    
     let linkProcessor = (text) => {
         /**
          * Given some text, processes and returns jsx with any link represented as an anchor
          */
-
         let output = [""]; // Stores all text in a list
         let loc = 0; // Stores the current location in output that we're working with
         let tmp;
@@ -127,6 +163,7 @@ const Article = ({article}) => {
             
             let text = linkProcessor(output[i]); // Process links
             text = newLineProcessor(text);
+            
             if (type[i] === 0){ // Return default text type
 
                 return <div key={i}>{text}</div>;
@@ -152,7 +189,7 @@ const Article = ({article}) => {
     };
 
     return (
-        <div className="article">
+        <div className={"article " + show}>
             <Theater
             title={article.title}
             description={article.desc}
