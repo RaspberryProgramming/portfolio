@@ -61,7 +61,7 @@
 
 .repo .description {
     flex-grow: 1;
-    padding:10px;
+    padding:5px;
 }
 
 .repo .languages {
@@ -80,6 +80,14 @@
     border-radius: 10px;
     background-color: #756B6A;
     color: #DAD4DF;
+}
+
+.repo .times {
+    padding: 5px;
+    margin: 2px;
+    margin-left: 5px;
+    width: 100%;
+    text-align: start;    
 }
 
 .content {
