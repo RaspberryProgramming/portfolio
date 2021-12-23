@@ -121,15 +121,17 @@ const Article = ({article}) => {
         let ind = 0; // Denote index of output
         let tick=false; // used to check if we're currently in formatted text.
         let delimiters = ['', '`', '*', '~']; // Denotes characters used to format
+        let tmp;
 
         for (let i = 0; i < text.length; i++) { // Iterate through input
             if (delimiters.indexOf(text[i]) >= 0) { // Detect Code Delimiter
-                
+                console.log(text[i])
                 if (tick) { // Close the code section
                     output[++ind] = ""
                     tick = false;
+                    tmp = "";
 
-                } else { // Start a new code section
+                } else { // Start a new code section    
                     type.push(delimiters.indexOf(text[i]));
 
                     if (output.length < ind) {
@@ -139,7 +141,7 @@ const Article = ({article}) => {
                     } else if (output.length < type.length) {
                         output[++ind] = "";
                     }
-                    
+                    tmp = "";
                     tick = true;
 
                 }
@@ -154,9 +156,11 @@ const Article = ({article}) => {
                 } else if (output.length < type.length) {
                     output[++ind] = ""
                 }
+
+                tmp = text[i]
             }
 
-            output[ind] += text[i]
+            output[ind] += tmp
         }
 
         return [...output.keys()].map((i)=>{ // Format text and return as jsx
