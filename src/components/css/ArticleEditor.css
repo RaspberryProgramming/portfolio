@@ -9,6 +9,26 @@
     text-align: left;
 }
 
+.ArticleEditor .toolbar {
+    width: 100%;
+    height: 56px;
+    display: flex;
+}
+
+.ArticleEditor .toolbar .btn {
+    color: white;
+    background-color: darkgreen;
+    text-align: center;
+    align-items:center;
+    justify-content: center;
+    display: flex;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.ArticleEditor .toolbar .btn:hover{
+    background-color: #005400
+}
+
 .article .open {
     max-height:100vh;
 }

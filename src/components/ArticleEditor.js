@@ -12,8 +12,19 @@ const ArticleEditor = (props) => {
         "contents": content
     };
 
+    let copyToClipboard = () => {
+        navigator.clipboard.writeText(content).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+        }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+    };
+
     return (
     <div className="ArticleEditor">
+        <div id="toolbar" className="toolbar">
+            <div className="btn" onClick={copyToClipboard()}>Copy to Clipboard</div>
+        </div>
         <Article article={article}/>
         <textarea onInput={e=>{setContent(e.target.value)}}></textarea>
     </div>
