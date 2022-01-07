@@ -5,6 +5,7 @@ import contactModalReducer from "./contactModalReducer";
 import introReducer from "./introReducer";
 import navigationReducer from "./navigationReducer";
 import articlesReducer from "./articlesReducer";
+import modelReducer from "./modelReducer";
 
 export default combineReducers({
     github: githubReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
     intro: introReducer,
     navigation: navigationReducer,
     articles: articlesReducer,
+    model: modelReducer,
 });

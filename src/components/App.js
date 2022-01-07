@@ -6,6 +6,7 @@ import Github from './Github';
 import Articles from './Articles';
 import About from './About';
 import Intro from './Intro';
+import Bai from './Bai';
 
 const App = (props) => {
   return (
@@ -18,6 +19,7 @@ const App = (props) => {
             <Route path="/github" render={(props) => <Github {...props} />} />
             <Route path="/about" component={About} />
             <Route path="/articles" component={Articles} />
+            <Route path="/bai" component={Bai} />
           </Switch>
         </div>
       </div>

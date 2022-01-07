@@ -1,5 +1,6 @@
 import github from '../apis/github';
 import api from '../apis/api';
+import * as tf from '@tensorflow/tfjs';
 
 
 export const getUser = (username) => async (dispatch, getState) => {
@@ -88,3 +89,36 @@ export const showNavigation = () => async (dispatch, getState) => {
     payload: true,
   });
 }
+
+export const downloadModel = () => async (dispatch, getState) => {
+  const model = await tf.loadLayersModel('/bai_model/model.json'); // Load Model
+
+  dispatch({
+    type: 'SET_MODEL',
+    payload: model
+  });
+}
+
+export const loadingModel = () => async (dispatch, getState) => {
+
+  dispatch({
+    type: 'SET_LOADING',
+    payload: "Loading Model. Please be Patient"
+  });
+};
+
+export const predict = (image) => async (dispatch, getState) => {
+  let model = await getState().model.model;
+
+  let imdata = await tf.browser.fromPixels(image).resizeNearestNeighbor([550, 425]).toFloat().expandDims();
+
+  let prediction = await model.predict(imdata).data();
+  console.log(prediction);
+
+  dispatch({
+    type: 'SET_LAST_PRED',
+    payload: prediction
+  });
+
+  return prediction;
+};
