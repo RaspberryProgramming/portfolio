@@ -51,6 +51,8 @@ class Github extends React.Component {
       if (this.props.repos.length > 0) {
         // Render each repo
         const render = this.props.repos.map((repo) =>{
+          let updated = (new Date (repo.updated_at)).toLocaleString();
+          let created = (new Date (repo.created_at)).toLocaleString();
 
           return (
             <div className="repo" key={repo.id}>
@@ -73,6 +75,11 @@ class Github extends React.Component {
                   {
                     this.renderLanguages(repo.name) // Render each language for the repo
                   }
+              </div>
+              <div className="times">
+                  Last Updated: {updated}
+                  <br/>
+                  Created: {created}
               </div>
             </div>
             

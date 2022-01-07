@@ -7,39 +7,36 @@ import { HouseDoor, FileEarmarkPerson, Github, Envelope, Book } from 'react-boot
 import ContactModal from './subcomponents/ContactModal';
 
 const Navigation = (props) => {
-  if (props.enable){
-    return (
-      <div className="Navigation">
-        <Link to="/">
-          Home
-          <HouseDoor />
-        </Link>
-        <Link to="/github">
-          Github
-          <Github />
-        </Link>
-        <Link to="/articles">
-          Articles
-          <Book />
-        </Link>
-        <Link to="/about">
-          About
-          <FileEarmarkPerson />
-        </Link>
-        <button className="end" onClick={()=>props.toggleContactModal()}>
-          Contact Me
-          <Envelope />
-        </button>
-        <ContactModal show={props.modal}/>
-      </div>
-    );
-  }
+  return (
+    <div className="Navigation">
+      <Link to="/">
+        Home
+        <HouseDoor />
+      </Link>
+      <Link to="/github">
+        Github
+        <Github />
+      </Link>
+      <Link to="/articles">
+        Articles
+        <Book />
+      </Link>
+      <Link to="/about">
+        About
+        <FileEarmarkPerson />
+      </Link>
+      <button className="end" onClick={()=>props.toggleContactModal()}>
+        Contact Me
+        <Envelope />
+      </button>
+      <ContactModal show={props.modal}/>
+    </div>
+  );
 
-  return <div></div>;
 }
 
 const mapStateToProps = (state) => {
-  return {modal: state.contactModal.contactModal, enable: state.navigation.enable};
+  return {modal: state.contactModal.contactModal};
 }
 
 export default connect(mapStateToProps, {toggleContactModal})(Navigation);

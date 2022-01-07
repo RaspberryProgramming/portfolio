@@ -4,6 +4,7 @@ import "./css/App.css";
 import Navigation from './Navigation';
 import Github from './Github';
 import Articles from './Articles';
+import ArticleEditor from './ArticleEditor';
 import About from './About';
 import Intro from './Intro';
 import Bai from './Bai';
@@ -20,6 +21,7 @@ const App = (props) => {
             <Route path="/about" component={About} />
             <Route path="/articles" component={Articles} />
             <Route path="/bai" component={Bai} />
+            <Route path="/articleEditor" component={ArticleEditor} />
           </Switch>
         </div>
       </div>
