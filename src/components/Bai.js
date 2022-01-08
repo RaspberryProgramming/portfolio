@@ -50,8 +50,9 @@ class Bai extends React.Component {
         <div className="content">
             <h1>Would you like to download the model?</h1>
             <p>By clicking Accept below, you will download the model which may be between 100 mb in size to 1 gb.</p>
-            <button onClick={()=>{this.props.loadingModel();this.props.downloadModel()}}>Accept</button>
+            <button className={this.props.loading?"hide":""} onClick={()=>{this.props.loadingModel();this.props.downloadModel()}}>Accept</button>
             <h2>{this.props.loading}</h2>
+            <h2>{this.props.loading?this.props.downloadProgress+"%":""}</h2>
         </div>
         )
         :(
@@ -81,7 +82,7 @@ class Bai extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
-  return {model: state.model.model, loading: state.model.loading, last_prediction: state.model.last_prediction};
+  return {model: state.model.model, loading: state.model.loading, last_prediction: state.model.last_prediction, downloadProgress: state.model.progress};
 }
 
 export default connect(mapStateToProps, {downloadModel, loadingModel, predict})(Bai);
