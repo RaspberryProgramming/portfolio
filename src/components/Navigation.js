@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {toggleContactModal} from '../actions'
 import './css/Navigation.css';
-import { HouseDoor, FileEarmarkPerson, Github, Envelope, Book } from 'react-bootstrap-icons';
+import { HouseDoor, FileEarmarkPerson, Lightbulb, Envelope, Book } from 'react-bootstrap-icons';
 import ContactModal from './subcomponents/ContactModal';
 
 const Navigation = (props) => {
@@ -13,9 +13,9 @@ const Navigation = (props) => {
         Home
         <HouseDoor />
       </Link>
-      <Link to="/github">
-        Github
-        <Github />
+      <Link to="/bai">
+        Blank AI
+        <Lightbulb />
       </Link>
       <Link to="/articles">
         Articles
