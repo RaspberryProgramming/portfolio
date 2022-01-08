@@ -7,7 +7,7 @@ import './css/Bai.css';
 
 class Bai extends React.Component {
   /**
-   * 
+   * Blank AI - Artificial Intelligence designed to distinguish photos of blank vs. non-blank paper scans
    */
 
   classes = {0: "Blank", 1: "Not Blank"}
@@ -16,23 +16,22 @@ class Bai extends React.Component {
     document.title = "Blank AI";
   }
 
-  async fileUpload ({target}) {
-    console.log(target);
+  async fileUpload (target, predict) {
+
     const [file] = target.files;
+
     let image = document.getElementById("preview")  
 
     if (file) {
-        image.src = await URL.createObjectURL(file);        
-    }
-  }
 
-  async imagePredict (model) {
-    let image = document.getElementById("preview");
-    console.log(image.src);
-    if (image.src !== "") {
-        let prediction = await this.props.predict(image);
-        console.log(prediction[0]);
+        let imageBM = await createImageBitmap(file);
+        
+        let prediction = await predict(imageBM);
+        
         console.log(this.declassify(prediction[0]));
+
+        image.src = await URL.createObjectURL(file);
+        image.classList.add('show');
     }
   }
 
@@ -58,14 +57,15 @@ class Bai extends React.Component {
         :(
         <div className="content">
             <h1>BAI Model Prediction</h1>
-        
-            <img id="preview" src="" alt="preview of predicted file" onLoad={()=>{this.imagePredict(this.props.model)}}/>
 
-            <input type='file' id="fileSubmit" onChange={this.fileUpload} />
+            <p className="prediction">{this.props.last_prediction ? this.declassify(this.props.last_prediction[0]):"Waiting for Prediction"}</p>
+        
+            <img id="preview" alt="preview of predicted file"/>
+
+            <input type='file' id="fileSubmit" onChange={({target}) => this.fileUpload(target, this.props.predict)} />
 
             <button onClick={()=>{document.getElementById('fileSubmit').click();}}>Upload Image</button>
             
-            <p className="prediction">{this.props.last_prediction ? this.declassify(this.props.last_prediction[0]):"Waiting for Prediction"}</p>
         </div>
         );
 
