@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './css/About.css';
 import Theater from './subcomponents/Theater';
 import Card from './subcomponents/Card';
+import GithubRepos from './subcomponents/GithubRepos';
 
 
 class About extends React.Component {
@@ -35,11 +36,16 @@ class About extends React.Component {
           at the end of this semester.
         </Card>
 
-        <Card title="Camerin Figueroa" image={"/img/profile.webp"}>
+        <Card title="Camerin Figueroa" image="/img/profile.webp">
           You can find a few of my projects on my
           <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer"> Github</a> or look through a list of projects on this website
           at the <Link to="/github"> Github Page</Link>. You can email me at <a href="mailto:cam@camscode.com">cam@camscode.com</a>. You can also find more
           social media below, just click the image and it'll bring you to the selected website.
+        </Card>
+
+        <Card title="Github" image="/img/github.webp" link="/github">
+          You can access a list of github repositories that I've created directly on this site.
+          <GithubRepos style={{width: "50vw"}} username="RaspberryProgramming"/>
         </Card>
 
 

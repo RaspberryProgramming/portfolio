@@ -15,8 +15,11 @@ const Card = (props) => {
     return (
         <div className="card">
             <div>
-                <div className="title">{props.title}</div>
-                <div className="content">
+                {props.link ?
+                    <a href={props.link} className="title">{props.title}</a>
+                    :<div className="title">{props.title}</div>
+                }
+                <div className="content-box">
                     {props.children}
                 </div>
             </div>

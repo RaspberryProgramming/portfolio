@@ -12,11 +12,13 @@
     color: #3D3D3D;
 }
 
-.card .content {
+.card .content-box {
     text-align:left;
     font-size:xx-large;
     margin-right: 2rem;
     margin-top: 2rem;
+    max-height: 80vh;
+    overflow: hidden;
 }
 
 .card img {
@@ -30,7 +32,7 @@
     border-color: #A5B2A4;
     border-radius: 5px;
     padding: 2px;
-    height: 10rem;
+    max-height: 10rem;
     width: 10rem;
     margin: auto;
     background-color: #FAFAFF
