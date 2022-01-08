@@ -110,4 +110,7 @@
     .repo .content {
         flex-direction: column;
     }
+    .repo .times {
+        font-size: 16px;  
+    }
 }
