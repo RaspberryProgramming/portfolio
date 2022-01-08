@@ -91,7 +91,17 @@ export const showNavigation = () => async (dispatch, getState) => {
 }
 
 export const downloadModel = () => async (dispatch, getState) => {
-  const model = await tf.loadLayersModel('/bai_model/model.json'); // Load Model
+  let options = {
+    onProgress: (p)=>{
+
+      dispatch({
+        type: 'SET_PROGRESS',
+        payload: p.toFixed(2)*100
+      });
+    }
+  }
+
+  const model = await tf.loadLayersModel('/bai_model/model.json', options); // Load Model
 
   dispatch({
     type: 'SET_MODEL',
