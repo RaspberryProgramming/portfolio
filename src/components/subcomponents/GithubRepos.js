@@ -39,7 +39,9 @@ class GithubRepos extends React.Component {
 
       if (this.props.repos.length > 0) {
         // Render each repo
-        const render = this.props.repos.map((repo) =>{
+        let repos = this.props.single ? [this.props.repos[0]] : this.props.repos
+
+        const render = repos.map((repo) =>{
           let updated = (new Date (repo.updated_at)).toLocaleString();
           let created = (new Date (repo.created_at)).toLocaleString();
 
@@ -104,6 +106,7 @@ class GithubRepos extends React.Component {
             });
 
         }
+
         return (<div>{this.renderRepos()}</div>);
     }
 
