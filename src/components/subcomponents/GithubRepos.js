@@ -97,7 +97,7 @@ class GithubRepos extends React.Component {
             // Attempt to request languages for all repos once the list of repos is received
             this.props.repos.map((repo) => {
 
-            this.props.getRepoLanguages(this.username, repo.name);
+            this.props.getRepoLanguages(this.props.username, repo.name);
 
             return true;
 
