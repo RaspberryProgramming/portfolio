@@ -45,7 +45,7 @@ class About extends React.Component {
 
         <Card title="Github" image="/img/github.webp" link="/github">
           You can access a list of github repositories that I've created directly on this site.
-          <GithubRepos style={{width: "50vw"}} username="RaspberryProgramming"/>
+          <GithubRepos style={{width: "50vw"}} username="RaspberryProgramming" single/>
         </Card>
 
 
