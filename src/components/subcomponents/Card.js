@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Card.css';
 
 const Card = (props) => {
@@ -12,11 +13,16 @@ const Card = (props) => {
      * children - jsx that will be displayed in the content of the card
      * 
      */
+
+    let scrollToTop = () => {
+        window.scrollTo(0,0);
+    };
+
     return (
         <div className="card">
             <div>
                 {props.link ?
-                    <a href={props.link} className="title">{props.title}</a>
+                    <Link to={props.link} className="title" onClick={()=>scrollToTop()}>{props.title}</Link>
                     :<div className="title">{props.title}</div>
                 }
                 <div className="content-box">
