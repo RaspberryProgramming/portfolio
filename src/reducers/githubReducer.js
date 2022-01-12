@@ -1,4 +1,4 @@
-let githubReducer = (state={repoLanguages: {}}, action) => {
+let githubReducer = (state={repoLanguages: {}, page: 1}, action) => {
     switch(action.type) {
       case 'GET_REPOS':
         return { ...state, repos: action.payload };
@@ -6,6 +6,8 @@ let githubReducer = (state={repoLanguages: {}}, action) => {
         return {...state, repoLanguages: {...state.repoLanguages, ...action.payload}}
       case 'GET_USER':
         return {...state, user: action.payload};
+      case 'SET_PAGE':
+        return {...state, page: action.payload};
       default:
         return state;
     }

@@ -53,17 +53,21 @@ export const toggleContactModal = () => async (dispatch, getState) => {
 };
 
 export const getRepoLanguages = (username, repoName) => async (dispatch, getState) => {
+  let languages = (await getState()).github.repoLanguages[repoName];
 
-  const response = await github.get(`/repos/${username}/${repoName}/languages`); // Request languages for the repo
+  if (languages === undefined) {
+    const response = await github.get(`/repos/${username}/${repoName}/languages`); // Request languages for the repo
 
-  // Each repo will have it's own object with it's languages
-  let payload = {};
-  payload[repoName] = response.data;
+    // Each repo will have it's own object with it's languages
+    let payload = {};
+    payload[repoName] = response.data;
 
-  dispatch({
-    type: 'GET_LANGUAGES',
-    payload: payload,
-  });
+    dispatch({
+      type: 'GET_LANGUAGES',
+      payload: payload,
+    });
+    
+  }
 }
 
 export const setIntro = (start=true) => async (dispatch, getState) => {
@@ -131,4 +135,13 @@ export const predict = (image) => async (dispatch, getState) => {
   });
 
   return prediction;
+};
+
+export const nextPage = () => async (dispatch, getState) => {
+  let page = getState().github.page;
+  page++;
+  dispatch({
+    type: 'SET_PAGE',
+    payload: page
+  });
 };

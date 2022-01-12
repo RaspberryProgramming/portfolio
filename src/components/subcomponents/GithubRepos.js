@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {getRepos, getUser, getRepoLanguages} from '../../actions';
-import _ from 'lodash';
+import {getRepos, getUser, getRepoLanguages, nextPage} from '../../actions';
 
 class GithubRepos extends React.Component {
+    perPage = 5;
 
     componentDidMount() {
 
@@ -19,6 +19,7 @@ class GithubRepos extends React.Component {
   }
 
   renderLanguages(name) {
+    this.props.getRepoLanguages(this.props.username, name);
 
     // Given that we've already received the repo's languages
     if (this.props.repoLanguages && this.props.repoLanguages[name]) {
@@ -33,6 +34,10 @@ class GithubRepos extends React.Component {
 
   }
 
+  roundUp(num) {
+    return num%1 === 0? num : num-(num%1)+1
+  }
+
   renderRepos() {
 
     if (this.props.repos) { // If the repos have been received
@@ -41,7 +46,9 @@ class GithubRepos extends React.Component {
         // Render each repo
         let repos = this.props.single ? [this.props.repos[0]] : this.props.repos
 
-        const render = repos.map((repo) =>{
+        let pages = this.roundUp(repos.length/this.perPage);
+
+        const render = repos.slice(0, this.props.page*this.perPage).map((repo) =>{
           let updated = (new Date (repo.updated_at)).toLocaleString();
           let created = (new Date (repo.created_at)).toLocaleString();
 
@@ -76,8 +83,16 @@ class GithubRepos extends React.Component {
             
           );
         });
-
-        return <div className="repo-list">{render}</div>; // display the repo list with the rendered repos
+        
+        return (
+          <div className="repo-list">
+            {render}
+            {this.props.page < pages ?
+              <div className="button" onClick={()=>this.props.nextPage()}>Load More ({this.props.page}/{pages})</div>
+              : ""
+            }
+          </div>
+        ); // display the repo list with the rendered repos
       
       } else {
 
@@ -92,29 +107,15 @@ class GithubRepos extends React.Component {
     return <div className="loading"> Loading Repositories... </div>; // Return nothing if repos haven't been collected
   }
 
-    render() {
-        if (_.isEmpty(this.props.repoLanguages) && this.props.repos) {
-            
-
-            // Attempt to request languages for all repos once the list of repos is received
-            this.props.repos.map((repo) => {
-
-            this.props.getRepoLanguages(this.props.username, repo.name);
-
-            return true;
-
-            });
-
-        }
-
-        return (<div>{this.renderRepos()}</div>);
-    }
+  render = () => {
+      return (<div>{this.renderRepos()}</div>);
+  }
 
 }
 
 
 const mapStateToProps = (state) => {
-    return { repos: state.github.repos, repoLanguages: state.github.repoLanguages};
+    return { repos: state.github.repos, repoLanguages: state.github.repoLanguages, page: state.github.page};
 }
   
-export default connect(mapStateToProps, { getRepos, getRepoLanguages, getUser })(GithubRepos);
+export default connect(mapStateToProps, { getRepos, getRepoLanguages, getUser, nextPage})(GithubRepos);
