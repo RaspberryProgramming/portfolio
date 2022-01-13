@@ -47,11 +47,10 @@ class Intro extends React.Component {
 
         // Activate animation going to next topic
         this.setState({
-            prev: 'current',
-            curr: 'next',
+            prev: 'current top',
         });
 
-        // Wait 500 ms until the transition is finished
+        // Wait 900 ms until the transition is finished
         setTimeout(()=>{
             // Once timeout finishes, place topics in correct location without transition
             let prevloc = this.state.prevLoc-1;
@@ -59,51 +58,47 @@ class Intro extends React.Component {
             let nextloc = this.state.nextLoc-1;
             this.setState({
                 prev: 'previous notrans',
-                curr: 'current notrans',
-                prevLoc: prevloc, // Move correct topics into necessary divs
                 currLoc: currloc,
                 nextLoc: nextloc,
             });
 
-            // wait another 20 ms to 
+            // wait another 75 ms to 
             setTimeout(()=>{
-            this.setState({ // remove notrans from each div
-                prev: 'previous',
-                curr: 'current',
-            });
+                this.setState({ // remove notrans from each div
+                    prev: 'previous',
+                    prevLoc: prevloc,
+                });
 
-            }, 20);
+            }, 75);
 
-        }, 500);
+        }, 900);
     } else if (input === "down" && this.state.nextLoc < this.topics.length) {
         // Activate transition going to previous topic
         this.setState({
-            curr: 'previous',
+            //curr: 'previous',
             next: 'current'
         });
 
-        // wait 500 ms before placing all topics into correct divs
+        // wait 900 ms before placing all topics into correct divs
         setTimeout(()=>{
             // move all topics into correct divs
             let prevloc = this.state.prevLoc+1;
             let currloc = this.state.currLoc+1;
             let nextloc = this.state.nextLoc+1;
             this.setState({
-                curr: 'current notrans',
                 next: 'next notrans',
-                prevLoc: prevloc, // Move correct topics into necessary divs
+                prevLoc: prevloc,
                 currLoc: currloc,
-                nextLoc: nextloc,
             });
 
             // wait 20ms and remove notrans
             setTimeout(()=>{
-            this.setState({
-                curr: 'current',
-                next: 'next',
-            });
-            }, 20);
-        }, 500);
+                this.setState({
+                    next: 'next',
+                    nextLoc: nextloc,
+                });
+            }, 75);
+        }, 900);
         
     } else if (input === "down" && this.state.nextLoc >= this.topics.length) {
         // Set something to happen when you reach the end
@@ -137,8 +132,8 @@ class Intro extends React.Component {
           View a list of projects I've done right on this website. You can easily direct to github
           where you can see the project code itself.
       </Topic>,
-      <Topic title="Explore the Website" background="/img/sunset.webp">
-          Explore Cam's Projects
+      <Topic link="/articles" title="Articles" background="/img/sunset.webp">
+          Read through some homemade articles that go over interesting topics and may teach you some skills in tech.
       </Topic>
     ];
   

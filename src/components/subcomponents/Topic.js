@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/Topic.css';
+import { Link } from 'react-router-dom';
 
 const Card = (props) => {
     /**
@@ -13,18 +14,17 @@ const Card = (props) => {
      */
 
     return (
-        <a
-            href={props.link}
+        <div
             className="topic"
             style={{backgroundImage: props.background ? `url(${props.background})`:''}}
             >
             <div className="content">
-                <h1 className="title">{props.title}</h1>
+                <Link to={props.link}><h1 className="title">{props.title}</h1></Link>
                 <div className="children">
                     {props.children}
                 </div>
             </div>
-        </a>
+        </div>
     );
 };
 
