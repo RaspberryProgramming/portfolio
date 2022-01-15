@@ -1,7 +1,7 @@
 import github from '../apis/github';
 import api from '../apis/api';
 import * as tf from '@tensorflow/tfjs';
-
+import _ from 'lodash';
 
 export const getUser = (username) => async (dispatch, getState) => {
   const response = await github.get(`/users/${username}`);
@@ -100,7 +100,7 @@ export const downloadModel = () => async (dispatch, getState) => {
 
       dispatch({
         type: 'SET_PROGRESS',
-        payload: p.toFixed(2)*100
+        payload: _.round(p)
       });
     }
   }
