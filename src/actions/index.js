@@ -100,7 +100,7 @@ export const downloadModel = () => async (dispatch, getState) => {
 
       dispatch({
         type: 'SET_PROGRESS',
-        payload: _.round(p)
+        payload: _.round(p*100)
       });
     }
   }
