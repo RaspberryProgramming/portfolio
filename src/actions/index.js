@@ -14,7 +14,7 @@ export const getUser = (username) => async (dispatch, getState) => {
 };
 
 export const getRepos = (username) => async (dispatch, getState) => {
-  const response = await github.get(`/users/${username}/repos`); // axios request for repositories
+  const response = await github.get(`/users/${username}/repos`, {params: {sort: 'updated'}}); // axios request for repositories
 
   dispatch({
     type: 'GET_REPOS',
