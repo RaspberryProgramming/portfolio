@@ -12,7 +12,7 @@
 }
 
 .About .title {
-    margin-top: 2rem;
+    margin-top: 4rem;
     color: #BF8D8C !important;
     font-size: 48px;
 }
@@ -45,6 +45,16 @@
 .About .links * {
     margin: 10px;
 }
+
+.About .link.bg-white {
+    background-color: white;
+    border-radius: 5px;
+    display:flex;
+    height: 10rem;
+    align-items: center;
+    justify-content: center;
+}
+
 
 @media only screen and (max-width: 600px) {
     .About .links .link img {
