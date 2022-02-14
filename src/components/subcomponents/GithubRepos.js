@@ -88,7 +88,7 @@ class GithubRepos extends React.Component {
           <div className="repo-list">
             {render}
             {this.props.page < pages ?
-              <div className="button" onClick={()=>this.props.nextPage()}>Load More ({this.props.page}/{pages})</div>
+              <div className="btn" onClick={()=>this.props.nextPage()}>Load More ({this.props.page}/{pages})</div>
               : ""
             }
           </div>
