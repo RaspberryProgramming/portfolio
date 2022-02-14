@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import './css/About.css';
 import Theater from './subcomponents/Theater';
 import Card from './subcomponents/Card';
-import GithubRepos from './subcomponents/GithubRepos';
-
 
 class About extends React.Component {
   /**
