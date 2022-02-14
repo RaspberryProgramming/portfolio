@@ -30,6 +30,15 @@ html, body {
     height:100%;
 }
 
+.btn {
+    border-style: solid;
+    border-color: #837483;
+    border-radius: 5px;
+    border-width: 1px;
+    background-color: #373747;
+    padding: 6px;
+}
+
 @media only screen and (max-width: 600px) {
     .App {
         flex-direction: column-reverse;
