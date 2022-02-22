@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import './css/About.css';
 import Theater from './subcomponents/Theater';
 import Card from './subcomponents/Card';
-import GithubRepos from './subcomponents/GithubRepos';
-
 
 class About extends React.Component {
   /**
@@ -43,9 +41,9 @@ class About extends React.Component {
           social media below, just click the image and it'll bring you to the selected website.
         </Card>
 
-        <Card title="Github" image="/img/github.webp" link="/github">
-          You can access a list of github repositories that I've created directly on this site.
-          <GithubRepos style={{width: "50vw"}} username="RaspberryProgramming" single/>
+        <Card title="Github"link="/github">
+          <p>You can access a list of github repositories that I've created directly on this site.</p>
+          <Link className='btn' to='/github'>Learn More</Link>
         </Card>
 
 
@@ -58,18 +56,18 @@ class About extends React.Component {
 
           <div className="links">
 
-            <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer" className="link">
+            <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer" className="link bg-white">
               <img src="/img/github.webp" alt="Github"/>
             </a>
 
-            <a href="https://www.linkedin.com/in/camerin-figueroa-2662bb157/" target="_blank" rel="noreferrer" className="link">
+            <a href="https://www.linkedin.com/in/camerin-figueroa-2662bb157/" target="_blank" rel="noreferrer" className="link bg-white">
               <img src="/img/linkedin.webp" alt="LinkedIn"/>
             </a>
 
             <a href="https://www.hackerrank.com/figueroa0609" target="_blank" rel="noreferrer" className="link">
               <img src="/img/hackerrank.webp" alt="Hacker Rank"/>
             </a>
-            <a href="https://app.hackthebox.eu/profile/734741" target="_blank" rel="noreferrer" className="link">
+            <a href="https://app.hackthebox.eu/profile/734741" target="_blank" rel="noreferrer" className="link bg-white">
               <img src="/img/hackthebox.webp" alt="Hack The Box"/>
             </a>
             <a href="https://www.udemy.com/user/camerin-figueroa/" target="_blank" rel="noreferrer" className="link">

@@ -23,6 +23,7 @@ const Card = (props) => {
                 <div className="children">
                     {props.children}
                 </div>
+                <Link className="btn" to={props.link}>Learn More</Link>
             </div>
         </div>
     );
