@@ -70,3 +70,16 @@
 .Bai .hide {
     display: none;
 }
+
+.Bai .error {
+    display:none;
+}
+
+.Bai .error.enable{
+    justify-content: center;
+    display:flex;
+    color: white;
+    background-color: #CB2323;
+    padding: 8px;
+    border-radius: 5px;
+}

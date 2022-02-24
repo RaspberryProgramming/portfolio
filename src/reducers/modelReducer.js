@@ -7,6 +7,8 @@ let modelReducer = (state={model: null, loading: "", progress: 0}, action) => {
         return { ...state, loading: action.payload };
       case 'SET_LAST_PRED':
         return { ...state, last_prediction: action.payload };
+      case 'SET_ERROR':
+        return { ...state, error: action.payload };
       case 'SET_PROGRESS':
         return { ...state, progress: action.payload };
 
