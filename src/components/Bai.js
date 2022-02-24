@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {downloadModel, loadingModel, predict} from '../actions'
+import {downloadModel, loadingModel, predict, error_msg} from '../actions'
 import ProgressBar from "./subcomponents/ProgressBar";
 //import { Link } from 'react-router-dom';
 import './css/Bai.css';
@@ -17,13 +17,23 @@ class Bai extends React.Component {
     document.title = "Blank AI";
   }
 
+  extExtractor (filename) {
+    let name = filename.split('.');
+    let ext = name[name.length-1];
+    return ext
+  }
+
   async fileUpload (target, predict) {
 
     const [file] = target.files;
 
     let image = document.getElementById("preview")  
 
-    if (file) {
+    let image_ext = ['jpg', 'png'];
+
+    let file_ext = await this.extExtractor(file.name);
+
+    if (file && image_ext.includes(file_ext)) {
 
         let imageBM = await createImageBitmap(file);
         
@@ -33,6 +43,8 @@ class Bai extends React.Component {
 
         image.src = await URL.createObjectURL(file);
         image.classList.add('show');
+    } else {
+      this.props.error_msg('Please pass JPG or PNG file Only');
     }
   }
 
@@ -62,7 +74,11 @@ class Bai extends React.Component {
             <h1>BAI Model Prediction</h1>
 
             <p className="prediction">{this.props.last_prediction ? this.declassify(this.props.last_prediction[0]):"Waiting for Prediction"}</p>
-        
+            
+            <div className={"error " + (this.props.error?'enable':'')}>
+              {this.props.error}
+            </div>
+
             <img id="preview" alt="preview of predicted file"/>
 
             <input type='file' id="fileSubmit" onChange={({target}) => this.fileUpload(target, this.props.predict)} />
@@ -84,7 +100,7 @@ class Bai extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
-  return {model: state.model.model, loading: state.model.loading, last_prediction: state.model.last_prediction, downloadProgress: state.model.progress};
+  return {model: state.model.model, loading: state.model.loading, last_prediction: state.model.last_prediction, downloadProgress: state.model.progress, error: state.model.error};
 }
 
-export default connect(mapStateToProps, {downloadModel, loadingModel, predict})(Bai);
+export default connect(mapStateToProps, {downloadModel, loadingModel, predict, error_msg})(Bai);

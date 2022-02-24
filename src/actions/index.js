@@ -137,6 +137,16 @@ export const predict = (image) => async (dispatch, getState) => {
   return prediction;
 };
 
+export const error_msg = (message) => async (dispatch, getState) => {
+  
+  console.log(message);
+
+  dispatch({
+    type: 'SET_ERROR',
+    payload: message
+  });
+};
+
 export const nextPage = () => async (dispatch, getState) => {
   let page = getState().github.page;
   page++;
