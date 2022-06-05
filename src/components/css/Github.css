@@ -65,12 +65,13 @@
 }
 
 .repo .languages {
-    align-items: center;
     display: flex;
     flex-direction: row;
-    padding: 10px;
-    width: 100%;
     flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
 }
 
 .repo .language {
@@ -80,12 +81,11 @@
     border-radius: 10px;
     background-color: #756B6A;
     color: #DAD4DF;
+    font-size: medium;
 }
 
-.repo .times {
+.repo .time {
     padding: 5px;
-    margin: 2px;
-    margin-left: 5px;
     width: 100%;
     text-align: start;    
 }
