@@ -52,6 +52,7 @@ class Articles extends React.Component {
     return (
       <div className="Articles">
           <Route path="/articles/:id" render={({match})=>{return this.article(match)}} />
+          <h1>Articles</h1>
           {this.renderArticles()}
       </div>
     );
