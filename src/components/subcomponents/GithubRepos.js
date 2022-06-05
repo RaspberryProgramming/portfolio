@@ -74,10 +74,11 @@ class GithubRepos extends React.Component {
                     this.renderLanguages(repo.name) // Render each language for the repo
                   }
               </div>
-              <div className="times">
-                  Last Updated: {updated}
-                  <br/>
-                  Created: {created}
+              <div className="time">
+                Last Updated: {updated}
+              </div>
+              <div className="time">
+                Created: {created}
               </div>
             </div>
             
