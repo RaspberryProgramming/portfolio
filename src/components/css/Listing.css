@@ -22,7 +22,7 @@
 
 .listing .title {
     color: #BF8D8C !important;
-    font-size: 28px;
+    font-size: 24px;
     margin-top: 10px;
     font-weight:bold;
     width:fit-content;
@@ -36,7 +36,7 @@
     display:flex;
     flex-direction: row;
     align-items:center;
-    font-size: x-large;
+    font-size: large;
 }
 
 .listing .description {

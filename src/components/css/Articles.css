@@ -37,7 +37,7 @@
     margin: 20px;
 }
 
-.article .h1 {
+.article h2 {
     font-size: 24px;
     font-weight:bolder;
     margin-top: 20px;
@@ -50,4 +50,17 @@
 
 .article a {
     color: #ACACFF;
+}
+
+.Articles {
+    display:flex;
+    flex-direction:column;
+    color: #AF8D8C;
+}
+
+.Articles h1 {
+    margin-left:auto;
+    margin-right:auto;
+    
+
 }
