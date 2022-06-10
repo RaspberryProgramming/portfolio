@@ -1,11 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {getRepos, getUser, getRepoLanguages, nextPage} from '../../actions';
+import {getRepos, getUser, getRepoLanguages, nextPage, setSortValue} from '../../actions';
 
 class GithubRepos extends React.Component {
-    perPage = 5;
 
-    componentDidMount() {
+  perPage = 5;
+  sortOptions = [
+    // text: displayed text, value: value used for sorting
+    {text: "Created Date", value: "created_at"},
+    {text: "Last Pushed", value: "pushed_at"},
+    {text: "Name", value: "name"},
+    {text: "Number of Forks", value: "forks"},
+    {text: "Size", value: "size"},
+    {text: "Last Updated", value: "updated_at"},      
+  ];
+  
+  componentDidMount() {
 
     document.title = "Github Repos";
 
@@ -15,7 +25,7 @@ class GithubRepos extends React.Component {
       this.props.getRepos(this.props.username); // Receive the repos at start
 
     }
-    
+  
   }
 
   renderLanguages(name) {
@@ -38,6 +48,36 @@ class GithubRepos extends React.Component {
     return num%1 === 0? num : num-(num%1)+1
   }
 
+  objArrayBubbleSort(arr, value) {
+    /**
+     * arrayBubbleSort
+     */
+    let unsorted;
+    let tmp;
+
+    do {
+      unsorted = false;
+
+      for (let i = 0; i < arr.length-1; i++) {
+        if (
+          (value.asc && arr[i][value.value] > arr[i+1][value.value]) // Ascending
+          || (!value.asc && arr[i][value.value] < arr[i+1][value.value]) // Descending
+          ) {
+          tmp = arr[i+1];
+          arr[i+1] = arr[i];
+          arr[i] = tmp;
+
+          unsorted = true;
+        }
+      }
+
+
+    } while (unsorted);
+
+    return arr;
+
+  }
+
   renderRepos() {
 
     if (this.props.repos) { // If the repos have been received
@@ -48,7 +88,9 @@ class GithubRepos extends React.Component {
 
         let pages = this.roundUp(repos.length/this.perPage);
 
-        const render = repos.slice(0, this.props.page*this.perPage).map((repo) =>{
+        let sortedRepos = this.objArrayBubbleSort([...repos], this.props.sortedValue);
+        console.log(sortedRepos);
+        const render = sortedRepos.slice(0, this.props.page*this.perPage).map((repo) =>{
           let updated = (new Date (repo.updated_at)).toLocaleString();
           let created = (new Date (repo.created_at)).toLocaleString();
 
@@ -87,9 +129,43 @@ class GithubRepos extends React.Component {
         
         return (
           <div className="repo-list">
+            <div className="sort-menu">
+              <p>Sort By:&ensp;</p>
+              <select className="dropdown-list" onChange={v=>{
+                this.props.setSortValue({
+                  ...this.props.sortedValue,
+                  value: v.target.value
+                });
+                }}>
+                {
+                  this.sortOptions.map(option=>{
+                    return <option value={option.value} key={option.value}>{option.text}</option>;
+                  })
+                }
+              </select>
+              &ensp;
+              <div className="btn btn-compact-left" onClick={()=>{
+                this.props.setSortValue({
+                  ...this.props.sortedValue,
+                  asc: true
+                });
+              }}>
+                Ascend
+              </div>
+              <div className="btn btn-compact-right" onClick={()=>{
+                this.props.setSortValue({
+                  ...this.props.sortedValue,
+                  asc: false
+                });
+              }}>
+                Descend
+              </div>
+            </div>
+
             {render}
+            
             {this.props.page < pages ?
-              <div className="btn" onClick={()=>this.props.nextPage()}>Load More ({this.props.page}/{pages})</div>
+              <div className="btn mar-la mar-ra" onClick={()=>this.props.nextPage()}>Load More ({this.props.page}/{pages})</div>
               : ""
             }
           </div>
@@ -116,7 +192,18 @@ class GithubRepos extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    return { repos: state.github.repos, repoLanguages: state.github.repoLanguages, page: state.github.page};
+    return {
+      repos: state.github.repos, 
+      repoLanguages: state.github.repoLanguages,
+      page: state.github.page,
+      sortedValue: state.github.sortedValue
+    };
 }
   
-export default connect(mapStateToProps, { getRepos, getRepoLanguages, getUser, nextPage})(GithubRepos);
+export default connect(mapStateToProps, {
+  getRepos,
+  getRepoLanguages,
+  getUser,
+  nextPage,
+  setSortValue
+})(GithubRepos);

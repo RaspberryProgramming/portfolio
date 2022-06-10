@@ -3,6 +3,27 @@
     color: #AA9AA0;
 }
 
+.Github .dropdown-list {
+    width: fit-content;
+    background-color: #3F3F4A;
+    color: #DAD4DF;
+    border-radius: 4px;
+    border: solid #5F5F6A 1px;
+    text-align: center;
+    padding: 2px;
+    font-size: inherit;
+}
+
+.Github .sort-menu {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+}
+
+.Github .dropdown-menu option {
+    background-color: #5F5F6A;
+}
+
 .repo-list {
     display:flex;
     flex-direction: column;
