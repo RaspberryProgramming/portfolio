@@ -3,6 +3,8 @@ import api from '../apis/api';
 import * as tf from '@tensorflow/tfjs';
 import _ from 'lodash';
 
+// Github Actions
+
 export const getUser = (username) => async (dispatch, getState) => {
   const response = await github.get(`/users/${username}`);
 
@@ -68,6 +70,13 @@ export const getRepoLanguages = (username, repoName) => async (dispatch, getStat
     });
     
   }
+}
+
+export const setSortValue = (value) => async (dispatch, getState) => {
+  dispatch({
+    type: 'SET_SORT_VALUE',
+    payload: value
+  })
 }
 
 export const setIntro = (start=true) => async (dispatch, getState) => {
