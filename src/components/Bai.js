@@ -63,7 +63,7 @@ class Bai extends React.Component {
         <div className="content">
             <h1>Would you like to download the model?</h1>
             <p>By clicking Accept below, you will download the model which may be between 100 mb in size to 1 gb.</p>
-            <button className={this.props.loading?"hide":""} onClick={()=>{this.props.loadingModel();this.props.downloadModel()}}>Accept Download</button>
+            <button className={`btn ${this.props.loading?"hide":""}`} onClick={()=>{this.props.loadingModel();this.props.downloadModel()}}>Accept Download</button>
             <h2>{this.props.loading}</h2>
             <ProgressBar progress={this.props.downloadProgress}/>
             <h2>{this.props.loading?this.props.downloadProgress+"%":""}</h2>
@@ -83,7 +83,7 @@ class Bai extends React.Component {
 
             <input type='file' id="fileSubmit" onChange={({target}) => this.fileUpload(target, this.props.predict)} />
 
-            <button onClick={()=>{document.getElementById('fileSubmit').click();}}>Upload Image</button>
+            <button className='btn' onClick={()=>{document.getElementById('fileSubmit').click();}}>Upload Image</button>
             
         </div>
         );

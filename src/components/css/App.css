@@ -37,6 +37,35 @@ html, body {
     border-width: 1px;
     background-color: #373747;
     padding: 6px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: fit-content;
+    cursor: pointer;
+}
+.btn:hover {
+    color: #C3C0C0;
+    background-color: #363643;
+    border-color: #C3C0C0;
+}
+
+.btn.mar-la {
+    margin-left: auto;
+}
+
+.btn.mar-ra {
+    margin-right: auto;
+}
+
+.btn.btn-compact-right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.btn.btn-compact-left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 @media only screen and (max-width: 600px) {
