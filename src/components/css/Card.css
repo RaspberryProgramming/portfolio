@@ -42,12 +42,18 @@
         flex-direction: column-reverse;
     }
 
-    .card .content {
-        font-size: x-large;
+    .card .content-box {
+        font-size: large;
+        margin-top: 1rem;
+        margin-right:0;
     }
 
     .card img.show {
         margin-bottom: 50px;
+    }
+
+    .card .title {
+        font-size: 28px;
     }
 
 }
