@@ -139,7 +139,14 @@ class GithubRepos extends React.Component {
                 }}>
                 {
                   this.sortOptions.map(option=>{
-                    return <option value={option.value} key={option.value}>{option.text}</option>;
+                    return (
+                      <option
+                        value={option.value}
+                        key={option.value}
+                        selected={option.value === this.props.sortedValue.value}
+                        >
+                          {option.text}
+                      </option>);
                   })
                 }
               </select>
