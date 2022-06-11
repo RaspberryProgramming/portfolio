@@ -1,4 +1,4 @@
-let githubReducer = (state={repoLanguages: {}, page: 1, sortedValue: {value:'updated_at', asc:false}}, action) => {
+let githubReducer = (state={repoLanguages: {}, page: 1, sortedValue: {value:'pushed_at', asc:false}}, action) => {
     switch(action.type) {
       case 'GET_REPOS':
         return { ...state, repos: action.payload };
