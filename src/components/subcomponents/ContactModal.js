@@ -26,7 +26,7 @@ const ContactModal = props => {
         // Render the contact modal form
         return (
         <form onSubmit={(e)=>onSubmit(e)}>
-            <input className="large" onKeyUp={(e)=>{props.updateEmailBody(e);}}/>
+            <textarea className="large" onKeyUp={(e)=>{props.updateEmailBody(e);}}/>
             <button>Open In Email Editor</button>
         </form>
         );

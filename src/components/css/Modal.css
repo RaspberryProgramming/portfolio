@@ -54,7 +54,30 @@
     height: fit-content;
 }
 
-.modal input.large {
+.modal textarea {
+    display:flex;
+    text-align: start;
+    justify-content: start;
+}
+
+.modal textarea.large {
     height: 10rem;
     width: 20rem;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .modal .box {
+        border: 2px solid #544545;
+        border-radius: 10px;
+        background-color: white;
+        padding: 25px;
+        max-width: 80vw;
+    }
+
+    .modal textarea.large {
+        height: 15rem;
+        width: auto;
+    }
+
 }
