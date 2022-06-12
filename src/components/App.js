@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import "./css/App.css";
 import Navigation from './Navigation';
 import Github from './Github';
@@ -15,14 +15,15 @@ const App = (props) => {
       <div className="App">
         <Navigation />
         <div className="app-content">
-          <Switch>
-            <Route path="/" exact component={Intro} />
-            <Route path="/github" render={(props) => <Github {...props} />} />
-            <Route path="/about" component={About} />
-            <Route path="/articles" component={Articles} />
-            <Route path="/bai" component={Bai} />
-            <Route path="/articleEditor" component={ArticleEditor} />
-          </Switch>
+          <Routes>
+            <Route path="/" exact element={<Intro />} />
+            <Route path="/github" element={<Github />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/articles" element={<Articles />} />
+            <Route path="/articles/:id" element={<Articles />} />
+            <Route path="/bai" element={<Bai />} />
+            <Route path="/articleEditor" element={<ArticleEditor />} />
+          </Routes>
         </div>
       </div>
     </BrowserRouter>
