@@ -4,8 +4,11 @@ import './css/Articles.css';
 import Article from './Article';
 import Listing from './subcomponents/Listing';
 import { getArticles } from '../actions';
-import { Route } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
+const withParams = (Component) => {
+  return ()=><Component params={useParams()} />;
+}
 
 class Articles extends React.Component {
   /**
@@ -39,19 +42,19 @@ class Articles extends React.Component {
     );
   }
 
-  article(match) {
+  article(articleId) {
     if (this.props.articles.length > 0) {
-      return <Article article={this.props.articles[match.params.id]}/>;
+      return <Article article={this.props.articles[articleId]}/>;
     } else {
       return <div></div>;
     }
   }
 
   render() {
-
+    
     return (
       <div className="Articles">
-          <Route path="/articles/:id" render={({match})=>{return this.article(match)}} />
+          {this.props.params.id ? this.article(this.props.params.id):''}
           <h1>Articles</h1>
           {this.renderArticles()}
       </div>
@@ -63,5 +66,5 @@ const mapStateToProps = (state) => {
   return { articles: state.articles.articles};
 }
 
-export default connect(mapStateToProps, { getArticles })(Articles);
+export default withParams(connect(mapStateToProps, { getArticles })(Articles));
 
