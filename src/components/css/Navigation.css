@@ -58,18 +58,20 @@
         position:fixed;
         bottom:0;
         left:0;
-        height: 5.5rem;
+        height: 4rem;
         justify-content: space-around;
         width:100vw;
     }
 
     .Navigation a, .Navigation button {
-        height: 5.5rem;
+        height: 4rem;
+        font-size:small;
+        width:max-content;
     }
 
     .Navigation a:hover, .Navigation button:hover {
         background-color: #2F2F32;
-        height:5.5rem;
+        height:4rem;
         transition: background-color 300ms ease-out;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
