@@ -3,11 +3,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10%;
+    padding: 2rem;
 }
 
 .Bai * {
     margin-top: 5px;
+}
+
+.Bai .about {
+    display: flex;
+    flex-direction: column;
 }
 
 .Bai h1 {

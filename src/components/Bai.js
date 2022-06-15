@@ -91,10 +91,13 @@ class Bai extends React.Component {
     return (
         <div className="Bai">
             {content}
-            <h1>About</h1>
-            <p> You can find the source, dataset and model created for BAI on github at 
-                <a href="https://www.github.com/RaspberryProgramming/BAI"> https://www.github.com/RaspberryProgramming/BAI</a>
-            </p>
+            <div className="about">
+              <h1>About</h1>
+              <p>
+                You can find the source, dataset and model created for BAI on github at 
+              </p>
+              <a href="https://www.github.com/RaspberryProgramming/BAI"> https://www.github.com/RaspberryProgramming/BAI</a>
+            </div>
         </div>
     );
   }
