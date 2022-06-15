@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+a {
+    overflow-wrap: anywhere;
+}
+
 a:link {
     color: #FFFFFF;
     text-decoration: none;
@@ -69,10 +73,7 @@ html, body {
 }
 
 @media only screen and (max-width: 600px) {
-    .App {
-        flex-direction: column-reverse;
-    }
     .App .app-content {
-        margin-bottom: 5.5rem;
+        margin-bottom: 4rem;
     }
 }
