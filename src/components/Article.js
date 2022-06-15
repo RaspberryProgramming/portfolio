@@ -3,6 +3,7 @@ import Theater from './subcomponents/Theater';
 import './css/Articles.css';
 
 const Article = ({article}) => {
+    
     const [show, setShow] = useState("");
     const [currArticle, setCurrArticle] = useState("");
 
@@ -48,7 +49,7 @@ const Article = ({article}) => {
         let loc = 0; // Stores the current location in output that we're working with
         let tmp;
         let i = 0;
-        console.log(text);
+
         while (i < text.length) { // Iterate through the entire text string
             if (text.slice(i, i+4) === "http"){ // slice from i to 4 chars plus and check for http
                 let x = i; // store i in x so the location is not modified
@@ -125,7 +126,7 @@ const Article = ({article}) => {
 
         for (let i = 0; i < text.length; i++) { // Iterate through input
             if (delimiters.indexOf(text[i]) >= 0) { // Detect Code Delimiter
-                console.log(text[i])
+
                 if (tick) { // Close the code section
                     output[++ind] = ""
                     tick = false;

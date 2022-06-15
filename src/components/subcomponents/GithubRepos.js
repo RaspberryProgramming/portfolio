@@ -89,7 +89,7 @@ class GithubRepos extends React.Component {
         let pages = this.roundUp(repos.length/this.perPage);
 
         let sortedRepos = this.objArrayBubbleSort([...repos], this.props.sortedValue);
-        console.log(sortedRepos);
+
         const render = sortedRepos.slice(0, this.props.page*this.perPage).map((repo) =>{
           let updated = (new Date (repo.updated_at)).toLocaleString();
           let created = (new Date (repo.created_at)).toLocaleString();
