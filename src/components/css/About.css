@@ -14,7 +14,7 @@
 .About .title {
     margin-top: 4rem;
     color: #BF8D8C !important;
-    font-size: 48px;
+    font-size: 28px;
 }
 
 .About .social {
@@ -42,7 +42,7 @@
     width: 10rem;
 }
 
-.About .links * {
+.About .links .link {
     margin: 10px;
 }
 
@@ -53,11 +53,18 @@
     height: 10rem;
     align-items: center;
     justify-content: center;
+    padding: 5px;
+    margin: 5px;
 }
 
 
 @media only screen and (max-width: 600px) {
     .About .links .link img {
+        width: 100%;
+    }
+
+    .About .link, .About .link.bg-white {
+        height:25vw;
         width: 25vw;
     }
 }
