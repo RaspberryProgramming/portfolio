@@ -78,6 +78,7 @@
     text-align: center;
     width: 88px;
     font-size: large;
+    flex-shrink:0;
 }
 
 .repo .description {
