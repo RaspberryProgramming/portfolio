@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     transition: opacity 300ms ease-out 50ms, width 300ms ease-out 50ms, background-color 80ms ease-out;
+    overflow: hidden;
 }
 .modal.hide * {
     visibility: hidden;
@@ -20,7 +21,7 @@
 
 .modal.show {
     display:flex;
-    width: 100%;
+    width: 100vw;
     background-color: rgba(0,0,0,0.4);
     opacity: 1;
     transition: opacity 300ms ease-in, width 300ms ease-in, background-color 300ms ease-in 200ms;
@@ -71,13 +72,35 @@
         border: 2px solid #544545;
         border-radius: 10px;
         background-color: white;
-        padding: 25px;
-        max-width: 80vw;
+        padding: 1.5rem;
+        max-width: 90vw;
+        width: 30rem;
+    }
+
+    .modal .box .content {
+        padding: 0;
+        margin: 0;
+    }
+
+    .modal .box .title {
+        text-align: center;
     }
 
     .modal textarea.large {
         height: 15rem;
         width: auto;
+    }
+
+    .modal {
+        width:100vw;
+        height:0;
+        transition: opacity 300ms ease-out 50ms, height 300ms ease-out 50ms, background-color 80ms ease-out;
+    }
+
+    .modal.show {
+        height:100vh;
+        transition: opacity 300ms ease-in, height 300ms ease-in, background-color 300ms ease-in 200ms;
+
     }
 
 }
