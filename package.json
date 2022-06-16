@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "@tensorflow/tfjs": "^3.18.0",
     "@tensorflow/tfjs-converter": "^3.18.0",
     "axios": "^0.27.2",
@@ -23,6 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "rimraf build/**/*.map",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
