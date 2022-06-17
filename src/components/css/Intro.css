@@ -56,7 +56,7 @@
 }
 
 .intro .top {
-    z-index: 11 !important;
+    z-index: 11;
 }
 
 .notrans {
@@ -96,4 +96,8 @@
 
 .intro .navbutton.bottom {
     margin-top: auto;
+}
+
+.intro .navbutton.top {
+    z-index: 14;
 }
