@@ -17,6 +17,7 @@ class Intro extends React.Component {
         prevLoc: -1,
         currLoc: 0,
         nextLoc: 1,
+        moving: false,
 
     };
   }
@@ -43,11 +44,12 @@ class Intro extends React.Component {
      */
 
     // Up Arrow
-    if (input === "up" && this.state.currLoc > 0) {
+    if (input === "up" && !this.state.moving && this.state.currLoc > 0 ) {
 
         // Activate animation going to next topic
         this.setState({
             prev: 'current top',
+            moving: true
         });
 
         // Wait 900 ms until the transition is finished
@@ -67,16 +69,18 @@ class Intro extends React.Component {
                 this.setState({ // remove notrans from each div
                     prev: 'previous',
                     prevLoc: prevloc,
+                    moving: false,
                 });
 
             }, 75);
 
         }, 900);
-    } else if (input === "down" && this.state.nextLoc < this.topics.length) {
+    } else if (input === "down" && !this.state.moving && this.state.nextLoc < this.topics.length) {
         // Activate transition going to previous topic
         this.setState({
             //curr: 'previous',
-            next: 'current'
+            next: 'current',
+            moving: true,
         });
 
         // wait 900 ms before placing all topics into correct divs
@@ -96,6 +100,7 @@ class Intro extends React.Component {
                 this.setState({
                     next: 'next',
                     nextLoc: nextloc,
+                    moving: false,
                 });
             }, 75);
         }, 900);
