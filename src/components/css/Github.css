@@ -20,6 +20,11 @@
     font-size: medium;
 }
 
+.Github .select-menu {
+    display:flex;
+    flex-direction: row;
+}
+
 .Github .dropdown-menu option {
     background-color: #5F5F6A;
 }
@@ -129,10 +134,27 @@
 
 @media only screen and (max-width: 600px) {
 
+    .repo-list {
+        width: 100%;
+    }
+
     .repo .content {
         flex-direction: column;
     }
     .repo .times {
         font-size: 16px;  
+    }
+
+    .Github .sort-menu {
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .Github .select-menu {
+        flex-direction: row;
+    }
+
+    .Github .sort-menu .btn.toggle {
+        margin-left: auto;
     }
 }
