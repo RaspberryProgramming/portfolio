@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {getRepos, getUser, getRepoLanguages, nextPage, setSortValue} from '../../actions';
+import { getRepos, getUser, getRepoLanguages, nextPage, setSortValue } from '../../actions';
+import { ToggleButton } from './Buttons';
 
 class GithubRepos extends React.Component {
 
@@ -130,43 +131,36 @@ class GithubRepos extends React.Component {
         return (
           <div className="repo-list">
             <div className="sort-menu">
-              <p>Sort By:&ensp;</p>
-              <select className="dropdown-list" onChange={v=>{
-                this.props.setSortValue({
-                  ...this.props.sortedValue,
-                  value: v.target.value
-                });
-                }}>
-                {
-                  this.sortOptions.map(option=>{
-                    return (
-                      <option
-                        value={option.value}
-                        key={option.value}
-                        selected={option.value === this.props.sortedValue.value}
-                        >
-                          {option.text}
-                      </option>);
-                  })
-                }
-              </select>
+              <div className="select-menu">
+                <p>Sort By:&ensp;</p>
+                <select className="dropdown-list" onChange={v=>{
+                  this.props.setSortValue({
+                    ...this.props.sortedValue,
+                    value: v.target.value
+                  });
+                  }}>
+                  {
+                    this.sortOptions.map(option=>{
+                      return (
+                        <option
+                          value={option.value}
+                          key={option.value}
+                          selected={option.value === this.props.sortedValue.value}
+                          >
+                            {option.text}
+                        </option>);
+                    })
+                  }
+                </select>
+              </div>
               &ensp;
-              <div className="btn btn-compact-left" onClick={()=>{
+              <ToggleButton defVal={false} clickAction={(val)=>{
+                console.warn(val);
                 this.props.setSortValue({
                   ...this.props.sortedValue,
-                  asc: true
+                  asc: val
                 });
-              }}>
-                Ascend
-              </div>
-              <div className="btn btn-compact-right" onClick={()=>{
-                this.props.setSortValue({
-                  ...this.props.sortedValue,
-                  asc: false
-                });
-              }}>
-                Descend
-              </div>
+                }} />
             </div>
 
             {render}

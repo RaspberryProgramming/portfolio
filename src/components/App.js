@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import "./css/App.css";
+import "./css/Buttons.css";
 import Navigation from './Navigation';
 import Github from './Github';
 import Articles from './Articles';
