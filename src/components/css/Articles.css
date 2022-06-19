@@ -29,6 +29,13 @@
     line-height: 1.5;
 }
 
+.article .section-title {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-align: center;
+}
+
 .article .code {
     padding: 10px;
     background-color: #3A3B3B;
@@ -44,8 +51,8 @@
     margin-bottom: 10px;
 }
 
-.article .li {
-    margin-left: 10px;
+.article li {
+    margin-left: 2rem;
 }
 
 .article a {
