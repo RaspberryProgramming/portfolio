@@ -179,11 +179,11 @@ const Article = ({article}) => {
 
             } else if (type[i] === 2) {
 
-                return <div className="h1" key={i}>{text}</div>;
+                return <div className="section-title" key={i}>{text}</div>;
 
             } else if (type[i] === 3) {
 
-                return <li className="li" key={i}>{text}</li>;
+                return <li key={i}>{text}</li>;
 
         
             } else {
