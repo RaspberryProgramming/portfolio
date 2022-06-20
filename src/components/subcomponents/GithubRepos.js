@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getRepos, getUser, getRepoLanguages, nextPage, setSortValue } from '../../actions';
-import { ToggleButton } from './Buttons';
+import { ToggleButton, Button } from './Buttons';
 
 class GithubRepos extends React.Component {
 
@@ -166,7 +166,7 @@ class GithubRepos extends React.Component {
             {render}
             
             {this.props.page < pages ?
-              <div className="btn mar-la mar-ra" onClick={()=>this.props.nextPage()}>Load More ({this.props.page}/{pages})</div>
+              <Button className="mar-la mar-ra" onClick={()=>this.props.nextPage()}>Load More ({this.props.page}/{pages})</Button>
               : ""
             }
           </div>
