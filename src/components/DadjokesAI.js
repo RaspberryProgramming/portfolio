@@ -85,7 +85,7 @@ class Bai extends React.Component {
         );
 
     return (
-        <div className="Bai">
+        <div className="AIPage">
             {content}
             <div className="about">
                 <h1>About</h1>

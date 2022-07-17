@@ -1,4 +1,4 @@
-.Bai {
+.AIPage {
     color: white;
     display: flex;
     flex-direction: column;
@@ -6,34 +6,34 @@
     padding: 2rem;
 }
 
-.Bai * {
+.AIPage * {
     margin-top: 5px;
 }
 
-.Bai .about {
+.AIPage .about {
     display: flex;
     flex-direction: column;
 }
 
-.Bai h1 {
+.AIPage h1 {
     margin-left: auto;
     margin-right: auto;
 }
 
-.Bai p {
+.AIPage p {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-.Bai img {
+.AIPage img {
     width:0;
     height:0;
     overflow: hidden;
     transition: height 1s;
 }
 
-.Bai img.show {
+.AIPage img.show {
     margin-left: auto;
     margin-right: auto;
     height: 50vh;
@@ -43,7 +43,7 @@
     transition: height 2s;
 }
 
-.Bai button {
+.AIPage button {
     font-size: 24px;
     margin-left: auto;
     margin-right: auto;
@@ -54,32 +54,32 @@
     padding: 15px;
 }
 
-.Bai input {
+.AIPage input {
     width:0;
     height:0;
 }
 
-.Bai .prediction {
+.AIPage .prediction {
     background-color: #373747;
     border-radius: 10px;
     padding: 8px;
     font-size: 16px;
 }
 
-.Bai .content {
+.AIPage .content {
     display: flex;
     flex-direction: column;
 }
 
-.Bai .hide {
+.AIPage .hide {
     display: none;
 }
 
-.Bai .error {
+.AIPage .error {
     display:none;
 }
 
-.Bai .error.enable{
+.AIPage .error.enable{
     justify-content: center;
     display:flex;
     color: white;
