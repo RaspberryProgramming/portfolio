@@ -103,7 +103,7 @@ export const showNavigation = () => async (dispatch, getState) => {
   });
 }
 
-export const downloadModel = () => async (dispatch, getState) => {
+export const downloadModel = (modelUrl, modelType) => async (dispatch, getState) => {
   let options = {
     onProgress: (p)=>{
 
@@ -114,7 +114,15 @@ export const downloadModel = () => async (dispatch, getState) => {
     }
   }
 
-  const model = await tf.loadLayersModel('/bai_model/model.json', options); // Load Model
+  let model;
+
+  if (modelType === "graph") {
+    model = await tf.loadGraphModel('run_tensorflowOutput_web_model/model.json');
+  } else if (modelType === "layers") {
+    model = await tf.loadLayersModel(modelUrl, options); // Load Model
+  } else {
+    model = null;
+  }
 
   dispatch({
     type: 'SET_MODEL',
@@ -130,13 +138,26 @@ export const loadingModel = () => async (dispatch, getState) => {
   });
 };
 
-export const predict = (image) => async (dispatch, getState) => {
+export const baiPredict = (image) => async (dispatch, getState) => {
   let model = await getState().model.model;
 
   let imdata = await tf.browser.fromPixels(image).resizeNearestNeighbor([550, 425]).toFloat().expandDims();
 
   let prediction = await model.predict(imdata).data();
   console.log(prediction);
+
+  dispatch({
+    type: 'SET_LAST_PRED',
+    payload: prediction
+  });
+
+  return prediction;
+};
+
+export const dadJokesPredict = () => async (dispatch, getState) => {
+  let model = await getState().model.model;
+
+  let prediction = "";
 
   dispatch({
     type: 'SET_LAST_PRED',

@@ -9,6 +9,7 @@ import ArticleEditor from './ArticleEditor';
 import About from './About';
 import Intro from './Intro';
 import Bai from './Bai';
+import DadjokesAI from './DadjokesAI';
 
 const App = (props) => {
   return (
@@ -23,6 +24,7 @@ const App = (props) => {
             <Route path="/articles" element={<Articles />} />
             <Route path="/articles/:id" element={<Articles />} />
             <Route path="/bai" element={<Bai />} />
+            <Route path="/dadjokes" element={<DadjokesAI />} />
             <Route path="/articleEditor" element={<ArticleEditor />} />
           </Routes>
         </div>
