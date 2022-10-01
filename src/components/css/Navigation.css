@@ -10,7 +10,7 @@
     width:100%;
 }
 
-.Navigation a, .Navigation button {
+.Navigation a, .Navigation button, .Navigation .subMenu .default {
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -51,6 +51,36 @@
     margin-bottom: 4px;
     height: 24px;
     width: 24px;
+}
+
+.Navigation .subMenu {
+    overflow: hidden;
+}
+
+.Navigation .subMenu:hover {
+    height:fit-content;
+}
+
+
+.Navigation .subMenu .default {
+    
+}
+
+.Navigation .subMenu a {
+    background-color: #373747;
+    height:0px;
+    overflow: hidden;
+}
+
+.Navigation .subMenu:hover a {
+    height: 4rem;
+}
+
+.Navigation .subMenu a:hover {
+    background-color: #2F2F32;
+    
+    border-bottom-left-radius: none;
+    border-bottom-right-radius: none;
 }
 
 @media only screen and (max-width: 600px) {

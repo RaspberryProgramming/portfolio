@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {downloadModel, loadingModel, dadJokesPredict, error_msg} from '../actions'
+import {setModelProgress, loadingModel, dadJokesPredict, error_msg} from '../actions'
 import ProgressBar from "./subcomponents/ProgressBar";
 //import { Link } from 'react-router-dom';
 import './css/AIPages.css';
+import * as tf from '@tensorflow/tfjs';
 
 
-class Bai extends React.Component {
+class DadjokesAI extends React.Component {
   /**
    * Blank AI - Artificial Intelligence designed to distinguish photos of blank vs. non-blank paper scans
    */
-
+  model;
 
   componentDidMount () {
     document.title = "Dad Jokes AI";
@@ -55,15 +56,34 @@ class Bai extends React.Component {
       }
   }
 
-  render() {
+  async downloadModel (modelUrl, modelType) {
+    let options = {
+      onProgress: (p)=>{
+        this.props.setModelProgress(p);
+      }
+    }
+  
+    if (modelType === "graph") {
+      this.model = await tf.loadGraphModel(modelUrl, options);
+    } else if (modelType === "layers") {
+      this.model = await tf.loadLayersModel(modelUrl, options); // Load Model
+    } else {
+      this.model = null;
+    }
+
+    await this.props.setModelProgress(0);
+    console.log(this.model);
     
-    let content = (this.props.model === null)?
+  }
+
+  render() {
+    let content = (this.model === undefined)?
         (
         <div className="content">
             <h1>Would you like to download the model?</h1>
             <p>By clicking Accept below, you will download the model which may be between 100 mb in size to 1 gb.</p>
             <p>You also accept that the model is generated based off of unfiltered data which may have been trained with any words available to the human language.</p>
-            <button className={`btn ${this.props.loading?"hide":""}`} onClick={()=>{this.props.loadingModel();this.props.downloadModel('/dadjokes_model/model.json', 'graph')}}>Accept Download</button>
+            <button className={`btn ${this.props.loading?"hide":""}`} onClick={()=>{this.props.loadingModel();this.downloadModel('/dadjokes_model/model.json', 'graph')}}>Accept Download</button>
             <h2>{this.props.loading}</h2>
             <ProgressBar progress={this.props.downloadProgress}/>
             <h2>{this.props.loading?this.props.downloadProgress+"%":""}</h2>
@@ -79,7 +99,7 @@ class Bai extends React.Component {
               {this.props.error}
             </div>
 
-            <button className='btn' onClick={()=>{this.props.dadJokesPredict()}}>Generate New Dad Joke</button>
+            <button className='btn' onClick={()=>{this.props.dadJokesPredict(this.model)}}>Generate New Dad Joke</button>
             
         </div>
         );
@@ -110,4 +130,4 @@ const mapStateToProps = (state) => {
   return {model: state.model.model, loading: state.model.loading, last_prediction: state.model.last_prediction, downloadProgress: state.model.progress, error: state.model.error};
 }
 
-export default connect(mapStateToProps, {downloadModel, loadingModel, dadJokesPredict, error_msg})(Bai);
+export default connect(mapStateToProps, {setModelProgress, loadingModel, dadJokesPredict, error_msg})(DadjokesAI);

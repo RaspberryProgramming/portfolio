@@ -13,10 +13,20 @@ const Navigation = (props) => {
         Home
         <HouseDoor />
       </Link>
-      <Link to="/bai">
-        Blank AI
-        <Lightbulb />
-      </Link>
+      <div className="subMenu">
+        <div className="default">
+          AI Projects
+          <Lightbulb />
+        </div>
+        <Link to="/bai">
+          Blank AI
+          <Lightbulb />
+        </Link>
+        <Link to="/dadjokes">
+          Dad Jokes AI
+          <Lightbulb />
+        </Link>
+      </div>
       <Link to="/articles">
         Articles
         <Book />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {downloadModel, loadingModel, baiPredict, error_msg} from '../actions'
+import {setModelProgress, loadingModel, baiPredict, error_msg} from '../actions'
 import ProgressBar from "./subcomponents/ProgressBar";
 //import { Link } from 'react-router-dom';
 import './css/AIPages.css';
@@ -106,4 +106,4 @@ const mapStateToProps = (state) => {
   return {model: state.model.model, loading: state.model.loading, last_prediction: state.model.last_prediction, downloadProgress: state.model.progress, error: state.model.error};
 }
 
-export default connect(mapStateToProps, {downloadModel, loadingModel, baiPredict, error_msg})(Bai);
+export default connect(mapStateToProps, {setModelProgress, loadingModel, baiPredict, error_msg})(Bai);

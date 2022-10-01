@@ -2,6 +2,7 @@ import github from '../apis/github';
 import api from '../apis/api';
 import * as tf from '@tensorflow/tfjs';
 import _ from 'lodash';
+import encoder from '../encoder.json';
 
 // Github Actions
 
@@ -103,30 +104,10 @@ export const showNavigation = () => async (dispatch, getState) => {
   });
 }
 
-export const downloadModel = (modelUrl, modelType) => async (dispatch, getState) => {
-  let options = {
-    onProgress: (p)=>{
-
-      dispatch({
-        type: 'SET_PROGRESS',
-        payload: _.round(p*100)
-      });
-    }
-  }
-
-  let model;
-
-  if (modelType === "graph") {
-    model = await tf.loadGraphModel('run_tensorflowOutput_web_model/model.json');
-  } else if (modelType === "layers") {
-    model = await tf.loadLayersModel(modelUrl, options); // Load Model
-  } else {
-    model = null;
-  }
-
+export const setModelProgress = (p) => async (dispatch, getState) => {
   dispatch({
-    type: 'SET_MODEL',
-    payload: model
+    type: 'SET_PROGRESS',
+    payload: _.round(p*100)
   });
 }
 
@@ -138,12 +119,13 @@ export const loadingModel = () => async (dispatch, getState) => {
   });
 };
 
-export const baiPredict = (image) => async (dispatch, getState) => {
+export const baiPredict = (image, model) => async (dispatch, getState) => {
   let model = await getState().model.model;
 
   let imdata = await tf.browser.fromPixels(image).resizeNearestNeighbor([550, 425]).toFloat().expandDims();
 
   let prediction = await model.predict(imdata).data();
+
   console.log(prediction);
 
   dispatch({
@@ -154,11 +136,46 @@ export const baiPredict = (image) => async (dispatch, getState) => {
   return prediction;
 };
 
-export const dadJokesPredict = () => async (dispatch, getState) => {
-  let model = await getState().model.model;
+export const dadJokesPredict = (model) => async (dispatch, getState) => {
+  console.log("Making Dad Joke");
+  
+  let decoder = Object.keys(encoder);
+  console.log(decoder);
 
-  let prediction = "";
+  let temperature = 0.7;
 
+  let length = 25;
+  let lastPred = [50256, 2061, 2435, 22437, 64];
+  let logits
+  let output = [];
+
+
+  for (let i = 0; i < length; i++) {
+    let predictions = model.predict(tf.tensor(lastPred, [1,5], 'int32'), [1,1]);
+    
+
+    logits = await Promise.all([predictions[0].array()]);
+    console.log(await predictions[1].array())
+    predictions[0].dispose();
+    
+    lastPred.push(logits[0][0].map(logit=> {
+      return logit.indexOf(Math.min(...logit));
+    })[4]);
+
+    lastPred.shift();
+
+    //console.log(predictions);
+    output.push(lastPred[4]);
+
+  }
+
+  console.log("Dad Joke Generated");
+  
+  let prediction = output.map(v=>decoder[v]).join(' ');
+  
+  console.log(output);
+  console.log(prediction);
+  
   dispatch({
     type: 'SET_LAST_PRED',
     payload: prediction
