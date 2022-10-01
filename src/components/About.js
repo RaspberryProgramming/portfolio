@@ -26,14 +26,6 @@ class About extends React.Component {
           JSX is a part of react which makes it easy to design websites directly in javascript code.
         </Card>
 
-        <Card title="College Experience" image="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Marist_College_Seal_-_Vector.svg/1200px-Marist_College_Seal_-_Vector.svg.png">
-          Throughout my college experience I've been able to improve my understanding of how computers work and how to design different software.
-          I have completed my A.S. degree from Orange County Community College in Computer Science. In the past 2 years I've been working towards my
-          Bachelors degree in computer science at Marist College in Poughkeepsie. Throughout my college experience I've been able to work with others in
-          teams and I am currently as of the Fall 2021 Semester been working on a team for a Capstone Project which I can hopefully list on this website
-          at the end of this semester.
-        </Card>
-
         <Card title="Camerin Figueroa" image="/img/profile.webp">
           You can find a few of my projects on my
           <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer"> Github</a> or look through a list of projects on this website
@@ -41,7 +33,39 @@ class About extends React.Component {
           social media below, just click the image and it'll bring you to the selected website.
         </Card>
 
-        <Card title="Github"link="/github">
+        <Card
+          title="CTech - Networking"
+          image="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Marist_College_Seal_-_Vector.svg/1200px-Marist_College_Seal_-_Vector.svg.png"
+          skills={["Cisco IOS", "Linux", "Python", "Cyber Security", ""]}>
+          N/a
+        </Card>
+
+        <Card
+          title="Orange County Community College"
+          image="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Marist_College_Seal_-_Vector.svg/1200px-Marist_College_Seal_-_Vector.svg.png"
+          skills={["C++"]}>
+          N/a
+        </Card>
+
+        <Card
+          title="Marist College Experience"
+          image="https://upload.wikimedia.org/wikipedia/en/thumb/4/4b/Marist_College_Seal_-_Vector.svg/1200px-Marist_College_Seal_-_Vector.svg.png"
+          skills={["C++"]}>
+          Throughout my college experience I've been able to improve my understanding of how computers work and how to design different software.
+          I have completed my A.S. degree from Orange County Community College in Computer Science. In the past 2 years I've been working towards my
+          Bachelors degree in computer science at Marist College in Poughkeepsie. Throughout my college experience I've been able to work with others in
+          teams and I am currently as of the Fall 2021 Semester been working on a team for a Capstone Project which I can hopefully list on this website
+          at the end of this semester.
+        </Card>
+
+        <Card
+          title="Work Experience"
+          image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAADgCAMAAAAt85rTAAAAkFBMVEX///+foaQAbLYAYrGex+Nyq9aanJ8AZLK3uLqhoqX29/amqKsAZrMAarX5/P3HyMqvsbTt7e4xhMLT1dZMlsvo8fgZd7zk5OWUv+DO4/FCjcdens8AWKxrpdPa29yztLeZxeKw0Oi/wcO71+uOu96Ctdrd6/URdLrv9vs2iMV4sNfR5fIAXq/B2+0Ydruy0ug2notqAAAEvElEQVR4nO2baXeyOhRGGRQcCIpTiyNqa21r2///7y5TQiYVffVq1nr2N8kBsw1mIAfLAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKA2nWWrYrXMDkWrYV7S6uURm1UV0Ht5YFWvIhy22hVebhZ5uVmn3cpD+nYV0O9FD6zsFUQrz7Mr9IJchOd1lw+s7sVEXV6vhmCmaJBhR/KrI5gGGWMY9aSq1xTshw+s9CUM5QasJ2hOE7ZsmZqCmwdW+hJW1wquHljpS7hW0O52HljrC4AgBJ8cCNYTDBtJ4zRJnMXFJ8KSdTyurvjDRyZ/mqrvhIitxV8/Wd9YcOwc/NPMF1ncYn48wg2cySymV5zNhaLYUhjxEfOpxV//MKEzrVsJTohzGreZxTXdEyGEBG7wVl5RjHRnit824L/SHQlnBYNnFMwl3bVOkBC5CcNPX7i8KYJOMNlrBFMBaXbfkMtNEXT8tU7Qcdf891nhwBeLzRF037WC/lRowoYvnXVvQcdlHVoQsK8NAqkXZdUmfsD1gdkH+gv5YlWra/FNOJ4EYum9BcM1NybNyl+XfLxyR2O+AmQiDYKvI1pjWZCKB4N99X3vcum9BQUSZqEs+2kF/E/lLGooCZIP5vDGYse/hJY+QvCVCY7lIrUC1c/iawX9xWdpTvtXi79/30t/AwRj/S3qvrMRnTVhTOiR2bdjjOC69JAFm9aU3a27InRGGzCId08rqJz1Re9JRXBL+59iqLG+WQM203Z/VsFQZN+gHaI0DmZSM6EJwxH96OyeVpB8TEUm9I9GZ528IPefS0v+6JDpfllPK5hWIZ0QVLBhnhyaYmR+W7LTgh8rnJbdbd6rPq+gHhI0Q43g+LcaJP/KtiZ+YhknSAZrObLoWOggSUiDDot+vsQ1TdAZvGoF2eKBsMlZseowTDCt2eFNJ6isHuga/2kFiSvAOhkn+B3rBK2RaEg72ysE7XyDennvYWImwoYJx020gj/i+shfWFcKekXNh6Lg5saCympi36Qt5H9pBav5WS7wMb5aML9DrVYp2C0aNGrLhreei+4H+uUSE9yx7sVh053LBb3CK9vYLgVL4aUtZCrQhr6dIPuTHROsFrn84ve8oMdhd1flxu3QY4L9wiTadNt87P8vuK8eU7gNevCsYPTCEbGjbZvdomUTpmOREHsiG+hOguy6/AOos4JawrTTZIK2fWlm070E6bNeks5I/0mw00r/bpWgd6nhG90gcBRBde+AMZ0Luwx0b2K+qELWh/zZ3XxUHYpd9/TehIaXfNDjWtCzh8ejNXzTLZ6G+lxC2f1hbGlRsU9Ed5cS7pl9WD6C4363/bndJVWvZ+fdJSeYpcUsTcmLkRH6jeVm07fL0UAQzPLTNpueEGyIcd+TYAOdIJgpirSN3eE9InjBVO2pgOCxYlMyndRctZqCpuSqqdmGNQVNyTZU80VrCZqTL6pm/NYTNKUBLTVnu4agUTnbStb9WUHTsu7l9ybo6xNUUCkx7r0J6c0X+gJM8ebLRi0x780XAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEbzH2yahtDw6DjLAAAAAElFTkSuQmCC"
+          skills={["C#", "Angular", "Typescript", "Oracle SQL", ]}>
+          N/a
+        </Card>
+
+        <Card title="Github" link="/github">
           <p>You can access a list of github repositories that I've created directly on this site.</p>
           <Link className='btn' to='/github'>Learn More</Link>
         </Card>

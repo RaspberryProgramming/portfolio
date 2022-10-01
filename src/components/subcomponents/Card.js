@@ -28,6 +28,17 @@ const Card = (props) => {
                 <div className="content-box">
                     {props.children}
                 </div>
+                {
+                    props.skills &&
+                    <div className="skill-row">
+                        <div className="skills-label">Skills:</div>
+                        <div className="skills">
+                        {
+                            props.skills?props.skills.map(language=><div className="skill" key={language}>{language}</div>):""
+                        }
+                        </div>
+                    </div>
+                }
             </div>
             <img className={props.image ? "show" : ""} src={props.image} alt={props.title}/>
         </div>
