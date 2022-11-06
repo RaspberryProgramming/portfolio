@@ -32,6 +32,22 @@ html, body {
 
 .App .app-content {
     height:100%;
+    
+}
+
+.App .app-content div {
+    animation: pageFadeInAnimation ease 0.75s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pageFadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
 }
 
 @media only screen and (max-width: 600px) {
