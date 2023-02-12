@@ -91,16 +91,18 @@ class About extends React.Component {
               <img src="/img/linkedin.webp" alt="LinkedIn"/>
             </a>
 
-            <a href="https://www.hackerrank.com/figueroa0609" target="_blank" rel="noreferrer" className="link">
+            <a href="https://www.hackerrank.com/figueroa0609" target="_blank" rel="noreferrer" className="link bg-hackerrank ">
               <img src="/img/hackerrank.webp" alt="Hacker Rank"/>
             </a>
             <a href="https://app.hackthebox.eu/profile/734741" target="_blank" rel="noreferrer" className="link bg-white">
               <img src="/img/hackthebox.webp" alt="Hack The Box"/>
             </a>
-            <a href="https://www.udemy.com/user/camerin-figueroa/" target="_blank" rel="noreferrer" className="link">
+            <a href="https://www.udemy.com/user/camerin-figueroa/" target="_blank" rel="noreferrer" className="link bg-white">
               <img src="/img/udemy.webp" alt="Udemy"/>
             </a>
-
+            <a href="https://leetcode.com/RaspberryProgramming/" target="_blank" rel="noreferrer" className="link bg-black">
+              <img src="/img/leetcode_logo.webp" alt="leet code"/>
+            </a>
           </div>
 
         </div>
