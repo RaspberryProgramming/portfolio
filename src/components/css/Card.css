@@ -69,6 +69,21 @@
     font-size: medium;
 }
 
+@media print {
+    
+    .card {
+        page-break-after: page;
+    }
+
+    .card img {
+        display:none !important;
+    }
+    
+    .card .content-box {
+        width:100%;
+    }
+}
+
 @media only screen and (max-width: 600px) {
 
     .card {

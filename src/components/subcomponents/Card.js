@@ -40,7 +40,7 @@ const Card = (props) => {
                     </div>
                 }
             </div>
-            <img className={props.image ? "show" : ""} src={props.image} alt={props.title}/>
+            <img className={props.image ? "show printHide" : ""} src={props.image} alt={props.title}/>
         </div>
     );    
 };

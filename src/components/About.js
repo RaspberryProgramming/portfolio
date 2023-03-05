@@ -10,15 +10,42 @@ class About extends React.Component {
    * This component doesn't require any props to be passed down.
    * Using different components, about is a page that displays about information.
    */
+
+  printRef = null;
+
+  constructor(props) {
+    super(props);
+
+    this.printRef = React.createRef();
+  }
+
   componentDidMount () {
     document.title = "About";
   }
 
+  printDiv(event) {
+
+    let printContents = this.printRef.current.innerHTML;
+    let originalContents = document.body.innerHTML;
+
+    document.body.classList = ["Print", ...document.body.classList];
+    document.body.innerHTML = printContents;
+    window.print();
+
+    document.body.classList.remove("Print");
+    document.body.innerHTML = originalContents;
+  }
+
   render() {
     return (
-      <div className="About">
+      <div ref={this.printRef} className="About">
 
-        <Theater title="About" description="This page has information about me and about this site." extraClasses="h-50v" background="/img/sunset.webp"/>
+        <div className="printShow center">
+          <h1>Camerin Figueroa Portfolio</h1>
+          <div>Contact Me: <a href="mailto:cam@camscode.com">cam@camscode.com</a></div>
+        </div>
+
+        <Theater title="About" description="This page has information about me and about this site." extraClasses="h-50v printHide" background="/img/sunset.webp"/>
 
         <Card title="Build with React" image="/img/react.webp">
           This website is created with <a href="https://reactjs.org/">React</a>, a javascript library for creating user interfaces and webapps.
@@ -106,26 +133,28 @@ class About extends React.Component {
           </div>
 
           <div className="links">
-
             <a href="https://github.com/RaspberryProgramming" target="_blank" rel="noreferrer" className="link bg-white">
               <img src="/img/github.webp" alt="Github"/>
             </a>
 
             <a href="https://www.linkedin.com/in/camerin-figueroa-2662bb157/" target="_blank" rel="noreferrer" className="link bg-white">
-              <img src="/img/linkedin.webp" alt="LinkedIn"/>
+              <img className="printHide" src="/img/linkedin.webp" alt="LinkedIn"/>
             </a>
 
-            <a href="https://www.hackerrank.com/figueroa0609" target="_blank" rel="noreferrer" className="link bg-hackerrank ">
-              <img src="/img/hackerrank.webp" alt="Hacker Rank"/>
+            <a href="https://www.hackerrank.com/figueroa0609" target="_blank" rel="noreferrer" className="link bg-hackerrank">
+              <img className="printHide" src="/img/hackerrank.webp" alt="Hacker Rank"/>
             </a>
+
             <a href="https://app.hackthebox.eu/profile/734741" target="_blank" rel="noreferrer" className="link bg-white">
-              <img src="/img/hackthebox.webp" alt="Hack The Box"/>
+              <img className="printHide" src="/img/hackthebox.webp" alt="Hack The Box"/>
             </a>
+
             <a href="https://www.udemy.com/user/camerin-figueroa/" target="_blank" rel="noreferrer" className="link bg-white">
-              <img src="/img/udemy.webp" alt="Udemy"/>
+              <img className="printHide" src="/img/udemy.webp" alt="Udemy"/>
             </a>
+
             <a href="https://leetcode.com/RaspberryProgramming/" target="_blank" rel="noreferrer" className="link bg-black">
-              <img src="/img/leetcode_logo.webp" alt="leet code"/>
+              <img className="printHide" src="/img/leetcode_logo.webp" alt="leet code"/>
             </a>
           </div>
 

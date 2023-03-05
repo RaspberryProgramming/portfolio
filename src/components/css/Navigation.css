@@ -53,6 +53,17 @@
     width: 24px;
 }
 
+@media print {
+    .Navigation .end {
+        background-color: transparent;
+    }
+    
+    .Navigation, .Navigation a, .Navigation .button {
+        border-bottom: 1px black solid;
+        border-radius: 0;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .Navigation {
         position:fixed;
