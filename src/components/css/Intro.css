@@ -21,7 +21,7 @@
     display: flex;
     position:fixed;
     transition: opacity 750ms ease-out, top 750ms ease-out;
-    top:-99%;
+    top:-100%;
     left:0;
     justify-content: center;
     align-items: center;
@@ -49,7 +49,7 @@
     display: flex;
     position:fixed;
     transition: opacity 750ms ease-out, top 750ms ease-out;
-    top:99%;
+    top:100%;
     left:0;
     justify-content: center;
     align-items: center;
@@ -81,6 +81,19 @@
     color: #C4C4C4
 }
 
+.intro .navbutton.hidden {
+    opacity: 0;
+    
+}
+
+.intro .navbutton.bottom {
+    margin-top: auto;
+}
+
+.intro .navbutton.top {
+    z-index: 14;
+}
+
 .intro .navbutton {
     z-index: 14;
     font-size: 48px;
@@ -92,12 +105,7 @@
     align-items: center;
     justify-content: center;
 
-}
-
-.intro .navbutton.bottom {
-    margin-top: auto;
-}
-
-.intro .navbutton.top {
-    z-index: 14;
+    opacity: 1;
+    animation:none !important;
+    transition: opacity ease 0.25s;
 }
