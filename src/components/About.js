@@ -118,8 +118,9 @@ class About extends React.Component {
         <Card
           title="HVCU (Current Employer)"
           image="/img/hvcu.webp"
-          skills={[]}>
-            To Be Added
+          skills={["Agile", "Python", "Pandas", "Numpy", "PowerOn", "JavaScript", "Jira"]}>
+            Working at HVCU, I've taken courses and gained experience with agile methodologies. I've learned to write specfiles in PowerOn and create programs with state of
+            the art technologies provided by Jack Henry. I've been able to work with Python in processing data from the core system and from third party vendors.
         </Card>
 
         <Card
