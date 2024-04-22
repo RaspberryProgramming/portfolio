@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {downloadModel, loadingModel, predict, error_msg} from '../actions'
+import {setProgress, loadingModel, predict, error_msg} from '../actions'
 import ProgressBar from "./subcomponents/ProgressBar";
-//import { Link } from 'react-router-dom';
+import * as tf from '@tensorflow/tfjs';
 import './css/Bai.css';
-
 
 class Bai extends React.Component {
   /**
@@ -12,6 +11,7 @@ class Bai extends React.Component {
    */
 
   classes = {0: "Blank", 1: "Not Blank"}
+  model = null;
 
   componentDidMount () {
     document.title = "Blank AI";
@@ -21,6 +21,20 @@ class Bai extends React.Component {
     let name = filename.split('.');
     let ext = name[name.length-1];
     return ext
+  }
+
+  async startModelDownload() {
+    this.props.loadingModel();
+    
+    let options = {
+      onProgress: (p)=>{
+        this.props.setProgress(p*100)
+      }
+    }
+
+    this.model = await tf.loadLayersModel('/bai_model/model.json', options); // Load Model
+
+    await this.props.setProgress(0);
   }
 
   async fileUpload (target, predict) {
@@ -36,8 +50,7 @@ class Bai extends React.Component {
     if (file && image_ext.includes(file_ext)) {
 
         let imageBM = await createImageBitmap(file);
-        
-        let prediction = await predict(imageBM);
+        let prediction = await predict(imageBM, this.model);
         
         console.log(this.declassify(prediction[0]));
 
@@ -57,13 +70,13 @@ class Bai extends React.Component {
   }
 
   render() {
-    
-    let content = (this.props.model === null)?
+
+    let content = (this.model === null)?
         (
         <div className="content">
             <h1>Would you like to download the model?</h1>
             <p>By clicking Accept below, you will download the model which may be between 100 mb in size to 1 gb.</p>
-            <button className={`btn ${this.props.loading?"hide":""}`} onClick={()=>{this.props.loadingModel();this.props.downloadModel()}}>Accept Download</button>
+            <button className={`btn ${this.props.loading?"hide":""}`} onClick={()=>this.startModelDownload()}>Accept Download</button>
             <h2>{this.props.loading}</h2>
             <ProgressBar progress={this.props.downloadProgress}/>
             <h2>{this.props.loading?this.props.downloadProgress+"%":""}</h2>
@@ -106,4 +119,4 @@ const mapStateToProps = (state) => {
   return {model: state.model.model, loading: state.model.loading, last_prediction: state.model.last_prediction, downloadProgress: state.model.progress, error: state.model.error};
 }
 
-export default connect(mapStateToProps, {downloadModel, loadingModel, predict, error_msg})(Bai);
+export default connect(mapStateToProps, {setProgress, loadingModel, predict, error_msg})(Bai);
