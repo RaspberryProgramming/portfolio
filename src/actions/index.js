@@ -103,22 +103,10 @@ export const showNavigation = () => async (dispatch, getState) => {
   });
 }
 
-export const downloadModel = () => async (dispatch, getState) => {
-  let options = {
-    onProgress: (p)=>{
-
-      dispatch({
-        type: 'SET_PROGRESS',
-        payload: _.round(p*100)
-      });
-    }
-  }
-
-  const model = await tf.loadLayersModel('/bai_model/model.json', options); // Load Model
-
+export const setProgress = (prog) => async (dispatch, getState) => {
   dispatch({
-    type: 'SET_MODEL',
-    payload: model
+    type: 'SET_PROGRESS',
+    payload: _.round(prog)
   });
 }
 
@@ -130,8 +118,7 @@ export const loadingModel = () => async (dispatch, getState) => {
   });
 };
 
-export const predict = (image) => async (dispatch, getState) => {
-  let model = await getState().model.model;
+export const predict = (image, model) => async (dispatch, getState) => {
 
   let imdata = await tf.browser.fromPixels(image).resizeNearestNeighbor([550, 425]).toFloat().expandDims();
 
