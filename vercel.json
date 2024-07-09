@@ -9,7 +9,7 @@
                 },
                 {
                     "key":"Content-Security-Policy",
-                    "value":"default-src https://*.camscode.com https://camscode.com https://*.vercel.app https://*.github.com"
+                    "value":"default-src https://*.camscode.com https://camscode.com https://*.vercel.app https://*.github.com https://*.githubusercontent.com"
                 },
                 {
                     "key":"X-Frame-Options",
