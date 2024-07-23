@@ -118,15 +118,17 @@ class About extends React.Component {
         <Card
           title="HVCU (Current Employer)"
           image="/img/hvcu.webp"
-          skills={["Agile", "Python", "Pandas", "Numpy", "PowerOn", "JavaScript", "Jira"]}>
+          skills={["Agile", "Azure", "Blazor", "ASP.NET", "ASPRunner", "Github", "MSSQL/SQL", "Python", "Pandas", "Numpy", "PowerOn", "JavaScript", "HTML", "CSS", "Jira", "VSCode", "Bootstrap"]}>
             Working at HVCU, I've taken courses and gained experience with agile methodologies. I've learned to write specfiles in PowerOn and create programs with state of
-            the art technologies provided by Jack Henry. I've been able to work with Python in processing data from the core system and from third party vendors.
+            the art technologies provided by Jack Henry. I've been able to work with Python in processing data from the core system and from third party vendors. While working here
+            I've been tasked with creating and updating various webapps written with asp.net, asprunner, and microsoft's blazor. This has exposed me to a wide variety of webapp
+            designs.
         </Card>
 
         <Card
             title="Github"
             link="/github"
-            skills={["Tensorflow", "Redis", "React", "Python", "Raspberry Pi", "Linux"]}>
+            skills={["Tensorflow", "Redis", "React", "Python", "Raspberry Pi", "Linux", "Rust", "Github Actions", "Postgres", "Handlebars", "Docker", "Diesel.rs", "C#", "Typescript"]}>
             <p>You can access a list of github repositories that I've created directly on this site.</p>
             <Link className='btn' to='/github'>Learn More</Link>
             <br/>
